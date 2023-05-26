@@ -1,0 +1,23 @@
+{
+  "name": "projet7_farkhsi_abdourrahman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --source-map -w scss:css",
+    "prefix": "postcss css/styles.css --use autoprefixer -d css/prefixed/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afarkhsi/les_petits_plats.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afarkhsi/les_petits_plats/issues"
+  },
+  "homepage": "https://github.com/afarkhsi/les_petits_plats#readme",
+  "dependencies": {
+    "sass": "^1.62.1"
+  }
+}
