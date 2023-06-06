@@ -1,0 +1,62 @@
+.card {
+    position: relative;
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    border: none;
+    &_img {
+        height: 253px;
+        object-fit: cover;
+    }
+    &_timer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        width: 65px;
+        height: 26px;
+        font-size: 12px;
+        font-family: 'Manrope', Courier, monospace;
+    }
+    &_title {
+        font-family: 'Anton', Courier, monospace;
+        font-size: 18px;
+        font-weight: 400;
+        padding-top: 30px;
+        padding-left: 15px;
+        margin: 0;
+    }
+    &_body {
+        &_h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #7A7A7A;
+            margin-bottom: 15px;
+        }
+        &_text {
+            font-size: 14px;
+            font-weight: 400;
+            height: 80px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        &_ingredients-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            font-size: 14px;
+            &_block {
+                height: 50px;
+                &_name {
+                margin: 0;
+                font-weight: 500;
+                // font-family: 'Manrope', Courier, monospace;
+                }
+                &_quantity {
+                    color: #7A7A7A;
+                    font-weight: 400;
+                }
+            }           
+        }
+    }
+}

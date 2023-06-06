@@ -1,0 +1,47 @@
+header {
+    img {
+        width: 180px;
+        height: 25px;
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        bottom: 0%;
+    }
+}
+
+.search {
+    height: 670px;
+    background-image: url("../assets/banniere/lampos-aritonang-24gR_9lCdes-unsplash\ 1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: -1;
+    transform: translateY(-7%);
+    &_title {
+        position: absolute;
+        height: 132px;
+        top: 43%;
+        text-align: center;
+    }
+    &_zone {
+        position: absolute;
+        height: 72px;
+        top: 60%;
+        &_input {
+            height: 72px;
+            max-width: 950px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+        }
+        &_button {
+            transform: translateX(-68px);
+            border: none;
+            background: none;
+            & img {
+                height: 52px;
+                width: 52px;
+            }
+        }
+    }
+}

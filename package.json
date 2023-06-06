@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/afarkhsi/les_petits_plats#readme",
   "dependencies": {
+    "bootstrap": "^5.3.0",
     "sass": "^1.62.1"
   }
 }

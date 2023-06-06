@@ -1,4 +1,21 @@
 import { RecipesModel } from "./models/api.js";
 
-const recipes = new RecipesModel('.data/recipes.js')
-console.log(recipes)
+// Recupère la data
+const recipesModel = new RecipesModel('data/recipes.json')
+const recipes = await recipesModel.getRecipesData()
+console.log("Liste de toutes les recettes:", recipes)
+
+const recipesContainer = document.querySelector(".recipes_cards")
+
+function recipesData(recipes) {
+    recipesContainer.innerHTML= '';
+    recipes.forEach((recipe) => {
+        recipesContainer.appendChild(createRecipeCard(recipe))
+      })
+}
+
+function init () {
+    recipesData(recipes)
+}
+
+await init()

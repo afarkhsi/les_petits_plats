@@ -1,0 +1,14 @@
+.filters {
+    max-width: 750px;
+    width: 100%;
+    // padding-left: 100px; 
+    gap: 23px;
+    & div {
+        display: flex;
+        & button {
+            max-width: 195px;
+            width: 100%;
+            height: 56px;
+        }
+    }
+}
