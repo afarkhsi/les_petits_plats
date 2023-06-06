@@ -1,5 +1,5 @@
 
-function crateIngredients(ingredients) {
+function createIngredients(ingredients) {
 
     // const ingredientsWrapper = document.querySelector
     const ingredientsWrapper = document.createElement('div')
@@ -37,7 +37,7 @@ function crateIngredients(ingredients) {
 
 function createRecipeCard(data) {
     const { id, image, name, servings, ingredients, time, description, appliance, ustensils } = data;
-    
+
     const wrapper = document.createElement('article');
     wrapper.classList.add("cards")
     wrapper.setAttribute('id', id);
@@ -96,7 +96,7 @@ function createRecipeCard(data) {
     cardIngredientsTitle.classList.add('card_body_h4')
     cardIngredientsTitle.textContent="INGRÉDIENTS"
 
-    const cardRecipesIngredients = crateIngredients(ingredients)
+    const cardRecipesIngredients = createIngredients(ingredients)
 
     wrapper.appendChild(cardBlock);
     cardBlock.appendChild(cardImage);

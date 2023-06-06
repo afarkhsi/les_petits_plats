@@ -1,4 +1,5 @@
 import { RecipesModel } from "./models/api.js";
+// import { searchData } from "./utils/searchBar.js";
 
 // Recupère la data
 const recipesModel = new RecipesModel('data/recipes.json')
@@ -7,111 +8,89 @@ console.log("Liste de toutes les recettes:", recipes)
 
 const recipesContainer = document.querySelector(".recipes_cards")
 
+// const newRecipes = []
 
 
 
 // CREATION DES CARDS
-function recipesData(recipes) {
+function recipesData(data) {
     recipesContainer.innerHTML= '';
-    recipes.forEach((recipe) => {
+    data.forEach((recipe) => {
         recipesContainer.appendChild(createRecipeCard(recipe))
       })
 }
 
 function init () {
     recipesData(recipes)
+    searchData()
 }
 
 await init()
 
 
 
-const searchBar = document.querySelector(".search_zone_input")
-const defaultMessage = document.querySelector(".message-no-match-result")
-const cards = document.querySelectorAll('.cards')
-// const test2 = document.getElementsByClassName('hide').length
+// const searchBar = document.querySelector(".search_zone_input")
+// const defaultMessage = document.querySelector(".message-no-match-result")
+// const cards = document.querySelectorAll('.cards')
 
 
-console.log('affichage des cards', cards)
+// console.log('affichage des cards', cards)
 
-//ajout ecouteur evenement keyup
-searchBar.addEventListener("keyup", (event)=>{
-    const searchedName = event.target.value.toLowerCase()
-    const test = cards.length
-    // if (searchedName.length > 2) {
-    //     cards.forEach(card => {
-    //         const isVisible = card.textContent.toLowerCase().includes(searchedName)
-    //         if(!isVisible) {
-    //             card.classList.add("hide")
-    //             card.style.display= 'none'
-    //             // defaultMessage.innerHTML = "Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc."
-    //         } else {
-    //             card.style.display= 'block'
-    //         }
-    //     })
-    // } else {
-    //     cards.forEach(card => {
-    //             card.classList.remove("hide")
-    //             card.style.display= 'block'
-    //     })
-    // }
+//ajout ecouteur evenement keyup V1 FONCTIONNEL
+// searchBar.addEventListener("keyup", (event)=>{
+//     const searchedName = event.target.value.toLowerCase()
+//     const test = cards.length
 
+//     cards.forEach(card => {
+//         const isVisible = card.textContent.toLowerCase().includes(searchedName)
+//         if(!isVisible && searchedName.length > 2) {
+//             card.classList.add("hide")
+//             card.style.display= 'none'
+//         } else {
+//             card.style.display= 'block'
+//             card.classList.remove("hide")
+//         }
+//     })
 
-    cards.forEach(card => {
-        const isVisible = card.textContent.toLowerCase().includes(searchedName)
-        if(!isVisible && searchedName.length > 2) {
-            card.classList.add("hide")
-            card.style.display= 'none'
-            // defaultMessage.innerHTML = "Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc."
-        } else {
-            card.style.display= 'block'
-            card.classList.remove("hide")
-        }
-    })
-
-
-    // if(searchedName.length > 2) {
-    //     const test2 = document.getElementsByClassName('hide').length
-    //     if (test > test2) {
-    //         console.log('ca supprime', test, test2)
-    //         defaultMessage.innerHTML = ""
-    //     }
-    // }    
-    // if(searchedName) {
-    //     const test2 = document.getElementsByClassName('hide').length
-    //     if(test !== test2) {
-    //         console.log('ca supprime!', test, test2)
-    //         return defaultMessage.innerHTML = ""
-    //     }
-    // }
-
-
-    const test2 = document.getElementsByClassName('hide').length
-    if(test === test2) {
-        console.log('ca filtre!', test, test2)
-        defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchedName}’ vous pouvez chercher «
-        tarte aux pommes », « poisson », etc. `
-    } else {
-        console.log('ca supprime!', test, test2)
-        defaultMessage.innerHTML = ""
-    }
-    
+//     const test2 = document.getElementsByClassName('hide').length
+//     if(test === test2) {
+//         console.log('ca filtre!', test, test2)
+//         defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchedName}’ vous pouvez chercher «
+//         tarte aux pommes », « poisson », etc. `
+//     } else {
+//         console.log('ca supprime!', test, test2)
+//         defaultMessage.innerHTML = ""
+//     }
+// })
 
 
 
+// // V2 TEST
+// searchBar.addEventListener("keyup", (event)=>{
+//     const searchedName = event.target.value.toLowerCase()
+//     const test = cards.length
 
-    // } else {
-    //     console.log('ca marche toujours', test, test2)
-    //     defaultMessage.innerHTML = ""
-    // }
-   
+//     const newRecipes = []
 
+//     cards.forEach(card => {
+//         const isVisible = card.textContent.toLowerCase().includes(searchedName)
+//         if(searchedName.length > 2 && isVisible) {
+//             card.classList.remove("hide")
+//             newRecipes.push(card)
+//             console.log(newRecipes)
+//             // recipesData(newRecipes)
+//         } else {         
+//             card.classList.add("hide")
+//         }
+//     })
 
-})
-
-// const test = cards.length
-
-// const test2 = document.getElementsByClassName('hide')
-
-// console.log('test:', test)
-// console.log('test2:', test2)
+//     // const test2 = document.getElementsByClassName('hide').length
+//     // if(test === test2) {
+//     //     console.log('ca filtre!', test, test2)
+//     //     defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchedName}’ vous pouvez chercher «
+//     //     tarte aux pommes », « poisson », etc. `
+//     // } else {
+//     //     console.log('ca supprime!', test, test2)
+//     //     defaultMessage.innerHTML = ""
+//     // }
+// })
