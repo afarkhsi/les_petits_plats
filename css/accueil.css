@@ -22,6 +22,7 @@ header img {
   top: 3%;
   left: 3%;
   bottom: 0%;
+  z-index: 1;
 }
 
 .search {
@@ -30,7 +31,6 @@ header img {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  z-index: -1;
   transform: translateY(-7%);
 }
 .search_title {
@@ -119,6 +119,10 @@ header img {
 .card_body_ingredients-detail_block_quantity {
   color: #7A7A7A;
   font-weight: 400;
+}
+
+.hide {
+  display: none;
 }
 
 .filters {

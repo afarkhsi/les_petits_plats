@@ -6,6 +6,7 @@ header {
         top: 3%;
         left: 3%;
         bottom: 0%;
+        z-index: 1;
     }
 }
 
@@ -15,7 +16,6 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    z-index: -1;
     transform: translateY(-7%);
     &_title {
         position: absolute;

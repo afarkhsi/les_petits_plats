@@ -13,7 +13,7 @@ function crateIngredients(ingredients) {
 
     let ingredientsDOM;
 
-    for(let ingredient of ingredients) {
+    ingredients.forEach((ingredient) => {
         ingredientsDOM = document.createElement('p')
         ingredientsDOM.classList.add('card_body_ingredients-detail_block')
         ingredientsDOM.setAttribute('data-ingredient', ingredient.ingredient);
@@ -31,16 +31,15 @@ function crateIngredients(ingredients) {
         }
         ingredientsWrapper.appendChild(ingredientsDOM);
         // console.log(ingredientsDOM)
-        }
+        })
     return ingredientsWrapper
 }
 
 function createRecipeCard(data) {
     const { id, image, name, servings, ingredients, time, description, appliance, ustensils } = data;
-
+    
     const wrapper = document.createElement('article');
     wrapper.classList.add("cards")
-    wrapper.classList.add("col-4")
     wrapper.setAttribute('id', id);
     wrapper.setAttribute('servings', servings);
     wrapper.style.maxWidth = "380px"
