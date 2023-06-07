@@ -1,15 +1,8 @@
 
 function createIngredients(ingredients) {
 
-    // const ingredientsWrapper = document.querySelector
     const ingredientsWrapper = document.createElement('div')
     ingredientsWrapper.classList.add('card_body_ingredients-detail')
-
-    // const ingredientsTitle = document.createElement('h4')
-    // ingredientsTitle.classList.add('card-h4')
-    // ingredientsTitle.classList.add('card_body_h4')
-    // ingredientsTitle.textContent="Ingrédients"
-    // ingredientsWrapper.appendChild(ingredientsTitle);
 
     let ingredientsDOM;
 
@@ -30,13 +23,44 @@ function createIngredients(ingredients) {
                                         `;
         }
         ingredientsWrapper.appendChild(ingredientsDOM);
-        // console.log(ingredientsDOM)
         })
     return ingredientsWrapper
 }
 
 function createRecipeCard(data) {
+
+
+
+
     const { id, image, name, servings, ingredients, time, description, appliance, ustensils } = data;
+    
+    // function createIngredients(ingredients) {
+
+    //     const ingredientsWrapper = document.createElement('div')
+    //     ingredientsWrapper.classList.add('card_body_ingredients-detail')
+    
+    //     let ingredientsDOM;
+    
+    //     ingredients.forEach((ingredient) => {
+    //         ingredientsDOM = document.createElement('p')
+    //         ingredientsDOM.classList.add('card_body_ingredients-detail_block')
+    //         ingredientsDOM.setAttribute('data-ingredient', ingredient.ingredient);
+    //         if (ingredient.unit === '' || ingredient.unit== null) {
+    //             if (ingredient.quantity) {
+    //                 ingredientsDOM.innerHTML = `<p class="card_body_ingredients-detail_block_name">${ingredient.ingredient}</p> 
+    //                                             <p class="card_body_ingredients-detail_block_quantity">${ingredient.quantity}</p>`;
+    //             } else {
+    //                 ingredientsDOM.innerHTML = `<p class="card_body_ingredients-detail_block_name">${ingredient.ingredient}</p> `;
+    //             } 
+    //         } else {
+    //             ingredientsDOM.innerHTML = `<p class="card_body_ingredients-detail_block_name">${ingredient.ingredient}</p> 
+    //                                         <p class="card_body_ingredients-detail_block_quantity">${ingredient.quantity} ${ingredient.unit}</p>
+    //                                         `;
+    //         }
+    //         ingredientsWrapper.appendChild(ingredientsDOM);
+    //         })
+    //     return ingredientsWrapper
+    // }
 
     const wrapper = document.createElement('article');
     wrapper.classList.add("cards")
@@ -49,12 +73,7 @@ function createRecipeCard(data) {
     cardBlock.classList.add("card")
     cardBlock.classList.add("rounded-4")
     cardBlock.classList.add("border-light")
-    // cardBlock.style.maxWidth = "380px"
-
-    //FIXME: add au scss
-    cardBlock.style.width = "100%"
     cardBlock.style.height = "100%"
-
 
     const cardHidden = document.createElement('div')
     cardHidden.classList.add("is-hidden")

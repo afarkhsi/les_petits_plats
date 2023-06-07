@@ -1,9 +1,10 @@
 import { RecipesModel } from "./models/api.js";
-// import { searchData } from "./utils/searchBar.js";
+import { searchData } from "./utils/searchBar.js";
+// import { createRecipeCard } from "./vues/recipesCards.js";
 
 // Recupère la data
 const recipesModel = new RecipesModel('data/recipes.json')
-const recipes = await recipesModel.getRecipesData()
+export const recipes = await recipesModel.getRecipesData()
 console.log("Liste de toutes les recettes:", recipes)
 
 const recipesContainer = document.querySelector(".recipes_cards")
@@ -13,7 +14,7 @@ const recipesContainer = document.querySelector(".recipes_cards")
 
 
 // CREATION DES CARDS
-function recipesData(data) {
+export function recipesData(data) {
     recipesContainer.innerHTML= '';
     data.forEach((recipe) => {
         recipesContainer.appendChild(createRecipeCard(recipe))
@@ -93,4 +94,12 @@ await init()
 //     //     console.log('ca supprime!', test, test2)
 //     //     defaultMessage.innerHTML = ""
 //     // }
+// })
+
+// const searchBar = document.querySelector(".search_zone_input")
+
+// searchBar.addEventListener("keyup", (event)=>{
+//     let searchedName = event.target.value.trim().toLowerCase();
+//     console.log(searchedName)
+//     searchData()
 // })

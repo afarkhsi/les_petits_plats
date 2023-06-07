@@ -66,6 +66,8 @@ header img {
   font-family: "Manrope", Arial, Helvetica, sans-serif;
   overflow: hidden;
   border: none;
+  width: 100%;
+  height: 100%;
 }
 .card_img {
   height: 253px;
