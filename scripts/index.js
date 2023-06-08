@@ -1,20 +1,30 @@
-import { RecipesModel } from "./models/api.js";
-import { searchData } from "./utils/searchBar.js";
+// import { RecipesModel } from "./models/api.js";
+// import { searchData } from "./utils/searchBar.js";
 // import { createRecipeCard } from "./vues/recipesCards.js";
 
-// Recupère la data
-const recipesModel = new RecipesModel('data/recipes.json')
-export const recipes = await recipesModel.getRecipesData()
-console.log("Liste de toutes les recettes:", recipes)
+
+
+// let recipes = []
+
+// // Recupère la data
+// async function getRecipesData(){
+//     recipes = await fetch('data/recipes.json')
+//         .then(response => response.json())
+//         .then(response => {
+//             return response.recipes
+//         })
+//         .catch(() => {
+//             throw new Error('Impossible de contacter le serveur pour recettes')
+//         })
+//     init()
+// }
+
+
 
 const recipesContainer = document.querySelector(".recipes_cards")
 
-// const newRecipes = []
-
-
-
 // CREATION DES CARDS
-export function recipesData(data) {
+function recipesData(data) {
     recipesContainer.innerHTML= '';
     data.forEach((recipe) => {
         recipesContainer.appendChild(createRecipeCard(recipe))
@@ -24,82 +34,38 @@ export function recipesData(data) {
 function init () {
     recipesData(recipes)
     searchData()
+    createIngredientsFilter()
+    createAppliancesFilter()
+    createUstensilsFilter()
 }
 
-await init()
+/* getRecipesData est declarée dans api.js */
+getRecipesData()
 
 
+// const test = document.querySelector('.tags')
+// const test2 = document.getElementById('test2')
+// const btn = document.querySelector('.tags button')
 
-// const searchBar = document.querySelector(".search_zone_input")
-// const defaultMessage = document.querySelector(".message-no-match-result")
-// const cards = document.querySelectorAll('.cards')
-
-
-// console.log('affichage des cards', cards)
-
-//ajout ecouteur evenement keyup V1 FONCTIONNEL
-// searchBar.addEventListener("keyup", (event)=>{
-//     const searchedName = event.target.value.toLowerCase()
-//     const test = cards.length
-
-//     cards.forEach(card => {
-//         const isVisible = card.textContent.toLowerCase().includes(searchedName)
-//         if(!isVisible && searchedName.length > 2) {
-//             card.classList.add("hide")
-//             card.style.display= 'none'
-//         } else {
-//             card.style.display= 'block'
-//             card.classList.remove("hide")
-//         }
-//     })
-
-//     const test2 = document.getElementsByClassName('hide').length
-//     if(test === test2) {
-//         console.log('ca filtre!', test, test2)
-//         defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchedName}’ vous pouvez chercher «
-//         tarte aux pommes », « poisson », etc. `
+// btn.addEventListener('click', function() {
+//     const aria = test2.toggleAttribute('aria-expanded')
+//     if( aria === false) {
+//             test2.style.display='block'
 //     } else {
-//         console.log('ca supprime!', test, test2)
-//         defaultMessage.innerHTML = ""
+//         test2.style.display='none'
 //     }
+
 // })
 
 
+// function displayDropdown() {
+//     if(filterIngredients.toggleAttribute('aria-expanded') === false) {
+//         filterBlock.style.display="block"
+//         filterIngredients.setAttribute('aria-expanded', 'true')
+//     } else {
+//         filterBlock.style.display="none"
+//         filterIngredients.setAttribute('aria-expanded', 'false')
+//     }
+// }
 
-// // V2 TEST
-// searchBar.addEventListener("keyup", (event)=>{
-//     const searchedName = event.target.value.toLowerCase()
-//     const test = cards.length
 
-//     const newRecipes = []
-
-//     cards.forEach(card => {
-//         const isVisible = card.textContent.toLowerCase().includes(searchedName)
-//         if(searchedName.length > 2 && isVisible) {
-//             card.classList.remove("hide")
-//             newRecipes.push(card)
-//             console.log(newRecipes)
-//             // recipesData(newRecipes)
-//         } else {         
-//             card.classList.add("hide")
-//         }
-//     })
-
-//     // const test2 = document.getElementsByClassName('hide').length
-//     // if(test === test2) {
-//     //     console.log('ca filtre!', test, test2)
-//     //     defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchedName}’ vous pouvez chercher «
-//     //     tarte aux pommes », « poisson », etc. `
-//     // } else {
-//     //     console.log('ca supprime!', test, test2)
-//     //     defaultMessage.innerHTML = ""
-//     // }
-// })
-
-// const searchBar = document.querySelector(".search_zone_input")
-
-// searchBar.addEventListener("keyup", (event)=>{
-//     let searchedName = event.target.value.trim().toLowerCase();
-//     console.log(searchedName)
-//     searchData()
-// })

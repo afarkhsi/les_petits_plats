@@ -1,5 +1,4 @@
-// import { createIngredients, createRecipeCard } from "../vues/recipesCards.js"
-import {recipesData, recipes} from '../index.js'
+// import {recipesData, recipes} from '../index.js'
 
 // // V1 FONCTIONNELLE
 // function searchData() {
@@ -38,45 +37,9 @@ import {recipesData, recipes} from '../index.js'
 //     })
 // }
 
-// V2 TEST
-// export function searchData() {
-//     const searchBar = document.querySelector(".search_zone_input")
-//     const defaultMessage = document.querySelector(".message-no-match-result")
-//     const cards = document.querySelectorAll('.cards')
-//     const recipesContainer = document.querySelector(".recipes_cards")
 
-
-//     console.log('affichage des cards', cards)
-//     const newRecipes = []
-
-//     // function recipesDatav2(data) {
-//     //     recipesContainer.innerHTML= '';
-//     //     data.forEach((recipe) => {
-//     //         recipesContainer.appendChild(createRecipeCard(recipe))
-//     //       })
-//     // }
-
-//     searchBar.addEventListener("keyup", (event)=>{
-//         const searchedName = event.target.value.toLowerCase()
-//         const test = cards.length
-
-//         cards.forEach(card => {
-//             const isVisible = card.textContent.toLowerCase().includes(searchedName)
-//             const cardVerif = false
-//             if(searchedName.length > 2 && isVisible && newRecipes.includes(card)== cardVerif ) {
-//                 card.classList.remove("hide")
-//                 newRecipes.push(card)
-//                 console.log(newRecipes)
-//                 recipesData(recipes)
-//             } else {         
-//                 card.classList.add("hide")
-//             }
-//         })
-//     })
-// }
-
-//V3 Fonctionnelle
-export function searchData() {
+//V2 FONCTIONNELLE
+/*export*/ function searchData() {
     const searchBar = document.querySelector(".search_zone_input")
     const defaultMessage = document.querySelector(".message-no-match-result")
 
@@ -119,5 +82,6 @@ export function searchData() {
         }
 
     })
+    
 }
 

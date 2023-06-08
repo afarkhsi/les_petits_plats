@@ -127,14 +127,20 @@ header img {
   max-width: 750px;
   width: 100%;
   gap: 23px;
-}
-.filters div {
   display: flex;
 }
-.filters div button {
+.filters_element {
+  width: 200px;
+}
+.filters_element button {
   max-width: 195px;
   width: 100%;
   height: 56px;
+}
+.filters_element_block {
+  display: none;
+  background-color: red;
+  flex-direction: column;
 }
 
 /*!
