@@ -1,24 +1,58 @@
 .filters {
-    max-width: 750px;
+    // max-width: 750px;
     width: 100%;
+    position: relative;
     // padding-left: 100px; 
+    max-height: 56px;
     gap: 23px;
     display: flex;
     &_element {
-        width: 200px;
+        width: 195px;
+        background-color: none;
+
         & button {
             max-width: 195px;
             width: 100%;
             height: 56px;
+            background-color: white;
+            border: none;
+            border-radius: 11px;
+            font-family: 'Manrope', sans-serif;
         }
-    }
-    &_element {
-        &_block {
+        & div {
+            max-width: 195px;
+            max-height: 315px;
             display: none;
-            background-color: red;
+            position: relative;
+            z-index: 1;
+            background-color: rgb(255, 255, 255);
             flex-direction: column;
+            border-radius:0px 0px 11px 11px;
+            & input {
+                width: 100%;
+            }
+            & ul {
+                text-decoration: none;
+                max-height: 250px;
+                list-style: none;
+                overflow: scroll;
+                & li {
+                    overflow: hidden;
+                }
+                &::-webkit-scrollbar {
+                    display: none;  /* Optional: just make scrollbar invisible */
+                    width: 5px;
+                }
+            }
         }
-    }
+        &_sum {
+            font-family: 'Anton', sans-serif;
+            font-size: 21px;
+            position: absolute;
+            right: 60px;
+            top: 15px;
+        }
+    }       
 }
 
 // #test {

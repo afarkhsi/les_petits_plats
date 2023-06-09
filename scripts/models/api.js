@@ -24,7 +24,7 @@ async function getRecipesData(){
         .then(response => {
             return response.recipes
         })
-        .catch(() => {
+        .catch(()=> {
             throw new Error('Impossible de contacter le serveur pour recettes')
         })
     /* init est declarée dans index.js */

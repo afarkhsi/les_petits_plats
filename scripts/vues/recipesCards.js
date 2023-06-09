@@ -29,9 +29,6 @@ function createIngredients(ingredients) {
 
 function createRecipeCard(data) {
 
-
-
-
     const { id, image, name, servings, ingredients, time, description, appliance, ustensils } = data;
     
     // function createIngredients(ingredients) {

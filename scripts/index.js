@@ -37,6 +37,7 @@ function init () {
     createIngredientsFilter()
     createAppliancesFilter()
     createUstensilsFilter()
+    generateFiltersList(recipes)
 }
 
 /* getRecipesData est declarée dans api.js */

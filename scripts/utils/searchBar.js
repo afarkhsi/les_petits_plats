@@ -48,10 +48,10 @@
     /* ajout du listener de comparaison à la saisie dans l'input */
     searchBar.addEventListener("keyup", (event)=>{
         let searchedName = event.target.value;
-        console.log('saisie clavier:', searchedName)
+        // console.log('saisie clavier:', searchedName)
 
         const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
-        console.log('regex', regexInput)
+        // console.log('regex', regexInput)
 
         newRecipes = recipes.filter((recipe) => {
             let isVisible = false;
@@ -61,8 +61,8 @@
                 isVisible=true;
             }
 
-            recipe.ingredients.forEach(({ingredient})=> {
-                if (regexInput.test(ingredient.toLowerCase())) {
+            recipe.ingredients.forEach((ingredient)=> {
+                if (regexInput.test(ingredient.ingredient.toLowerCase())) {
                     isVisible=true; 
                 }
             });            
@@ -73,15 +73,19 @@
         if(newRecipes.length>0) {
             defaultMessage.innerHTML=""
             recipesData(newRecipes)
-            console.log("nouveau tableau:" , newRecipes)
+            // console.log("nouveau tableau:" , newRecipes)
+            generateFiltersList(newRecipes)
         } else {
             recipesData(newRecipes)
             defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchedName}’ vous pouvez chercher «
                 tarte aux pommes », « poisson », etc. `
-            console.log("nouveau tableau:" , newRecipes)
+            // console.log("nouveau tableau:" , newRecipes)
+            generateFiltersList(newRecipes)
         }
 
+        /** Actualisation du nombre de recettes affichées */
+        const recipesSum = document.querySelector('.filters_element_sum')
+        recipesSum.innerHTML=`${newRecipes.length} recettes`
     })
-    
 }
 

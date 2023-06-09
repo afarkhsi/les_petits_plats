@@ -38,6 +38,8 @@ header img {
   height: 132px;
   top: 43%;
   text-align: center;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
 }
 .search_zone {
   position: absolute;
@@ -124,23 +126,57 @@ header img {
 }
 
 .filters {
-  max-width: 750px;
   width: 100%;
+  position: relative;
+  max-height: 56px;
   gap: 23px;
   display: flex;
 }
 .filters_element {
-  width: 200px;
+  width: 195px;
+  background-color: none;
 }
 .filters_element button {
   max-width: 195px;
   width: 100%;
   height: 56px;
+  background-color: white;
+  border: none;
+  border-radius: 11px;
+  font-family: "Manrope", sans-serif;
 }
-.filters_element_block {
+.filters_element div {
+  max-width: 195px;
+  max-height: 315px;
   display: none;
-  background-color: red;
+  position: relative;
+  z-index: 1;
+  background-color: rgb(255, 255, 255);
   flex-direction: column;
+  border-radius: 0px 0px 11px 11px;
+}
+.filters_element div input {
+  width: 100%;
+}
+.filters_element div ul {
+  text-decoration: none;
+  max-height: 250px;
+  list-style: none;
+  overflow: scroll;
+}
+.filters_element div ul li {
+  overflow: hidden;
+}
+.filters_element div ul::-webkit-scrollbar {
+  display: none; /* Optional: just make scrollbar invisible */
+  width: 5px;
+}
+.filters_element_sum {
+  font-family: "Anton", sans-serif;
+  font-size: 21px;
+  position: absolute;
+  right: 60px;
+  top: 15px;
 }
 
 /*!
