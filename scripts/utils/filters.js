@@ -30,6 +30,7 @@ function createIngredientsFilter() {
             filterIngredientsBtn.style.borderRadius = "11px"
         }
     });
+
 }
 
 /* Fonction creation filtre appliances */
@@ -102,6 +103,7 @@ function createUstensilsFilter() {
             filterUstensilsBtn.setAttribute('aria-expanded', 'false')
             filterUstensilsBtn.style.borderRadius = "11px"
         }
+        inputTest()
     })
 }
 
@@ -173,7 +175,68 @@ function generateFiltersList(recipes) {
     console.log("liste des appareils:", appliancesArray)
     console.log("liste des ustensiles:", ustensilsArray)
 
+    const filterInput = document.querySelector('.filters_ustensils_block_input')  
+    // const ustensilsItem = document.querySelectorAll('.filters_ustensils_block_list_item')
 
+    let newFilterArray = []
+
+    // filterInput.addEventListener('keyup', (event) => {
+    //     generateUstensilsList.innerHTML = ""
+    //     let searchedName = event.target.value;
+    //     console.log('saisie clavier:', searchedName)
+
+    //     const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
+
+    //     newFilterArray = ustensilsArray.filter((ustensil) => {
+    //         let isVisible = false
+    //         if (regexInput.test(ustensil.toLowerCase()) /*&& newFilterArray.includes(ustensil) === false*/){
+    //             isVisible=true
+    //             // newFilterArray.push(ustensil)
+    //             // const newUstensilsItem = document.querySelector('.filters_ustensils_block_list_item')
+    //             // newUstensilsItem.innerHTML=ustensil
+    //             // console.log('new ustensils:', newUstensilsItem )
+    //             // generateUstensilsList.appendChild(newUstensilsItem)
+    //         }            
+    //         return isVisible
+    //     })
+
+    //     console.log(newFilterArray)
+
+    //     if(newFilterArray.length>0) {
+
+    //     } else {
+
+    //     }
+    // })
+
+    // filterInput.addEventListener('keyup', (event) => {
+    //     generateUstensilsList.innerHTML = ""
+    //     let searchedName = event.target.value;
+    //     console.log('saisie clavier:', searchedName)
+
+    //     const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
+
+    //     newFilterArray = ustensilsArray.filter((ustensil) => {
+    //         let isVisible = false
+    //         if (regexInput.test(ustensil.toLowerCase()) /*&& newFilterArray.includes(ustensil) === false*/){
+    //             isVisible=true
+    //             // newFilterArray.push(ustensil)
+    //             // const newUstensilsItem = document.querySelector('.filters_ustensils_block_list_item')
+    //             // newUstensilsItem.innerHTML=ustensil
+    //             // console.log('new ustensils:', newUstensilsItem )
+    //             // generateUstensilsList.appendChild(newUstensilsItem)
+    //         }            
+    //         return isVisible
+    //     })
+
+    //     console.log(newFilterArray)
+
+    //     if(newFilterArray.length>0) {
+
+    //     } else {
+
+    //     }
+    // })
     
 
 }
@@ -186,3 +249,37 @@ function generateFiltersList(recipes) {
 // function inputFilter() {
 
 // }
+
+
+/** Fonction test recherche input filtre */
+function testItemsFilter() {
+
+    // const ustensilsBlock = document.querySelectorAll('.filters_ustensils_block_list')
+    const ustensilsItem = document.querySelectorAll('.filters_ustensils_block_list_item')
+    const filterInput = document.querySelector('.filters_ustensils_block_input') 
+    const searchedValue = filterInput.value
+
+    const regexInput = new RegExp (`${searchedValue.trim().toLowerCase()}`);
+
+    ustensilsItem.forEach((item)=> {
+        if(regexInput.test(item.innerHTML.toLowerCase())){
+            item.classList.remove('hidden')
+        } else {
+            item.classList.add('hidden')
+        }
+        return (ustensilsItem)
+    })
+
+
+
+
+}
+
+/** fonction re */
+function inputTest() {
+    const filterInput = document.querySelector('.filters_ustensils_block_input') 
+    filterInput.addEventListener('keyup', () => {
+        // generateUstensilsList.innerHTML = ""
+        testItemsFilter() 
+    })
+}
