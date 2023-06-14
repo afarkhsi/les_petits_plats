@@ -52,8 +52,8 @@
 
         const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
         // console.log('regex', regexInput)
-
-        newRecipes = recipes.filter((recipe) => {
+        if(searchBar.value.length > 2) {
+            newRecipes = recipes.filter((recipe) => {
             let isVisible = false;
             if (regexInput.test(recipe.name.toLowerCase())){
                 isVisible=true;
@@ -68,24 +68,38 @@
             });            
             return isVisible           
         })
+        sum(newRecipes)
+        }
+        
 
-        /** nouveau display après filtre */
+        /** affichage du message par default lorsqu'aucune recette n'est trouvée */
         if(newRecipes.length>0) {
             defaultMessage.innerHTML=""
+        } else {
+            defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchBar.value}’ vous pouvez chercher «
+                tarte aux pommes », « poisson », etc. `
+        }
+
+
+        /** nouveau display en fonction de la recherche */
+        if((searchBar.value.length>2)){
             recipesData(newRecipes)
             // console.log("nouveau tableau:" , newRecipes)
             generateFiltersList(newRecipes)
         } else {
-            recipesData(newRecipes)
-            defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchedName}’ vous pouvez chercher «
-                tarte aux pommes », « poisson », etc. `
-            // console.log("nouveau tableau:" , newRecipes)
-            generateFiltersList(newRecipes)
+            defaultMessage.innerHTML=""
+            recipesData(recipes)
+            generateFiltersList(recipes)
+            sum(recipes)
         }
-
-        /** Actualisation du nombre de recettes affichées */
-        const recipesSum = document.querySelector('.filters_element_sum')
-        recipesSum.innerHTML=`${newRecipes.length} recettes`
     })
+
+    /** Fonction d'actualisation du nombre de recettes affichées */
+    function sum(data){
+
+        const recipesSum = document.querySelector('.filters_element_sum')
+        recipesSum.innerHTML=`${data.length} recettes`
+        console.log("tableau test :", data)
+    }
 }
 
