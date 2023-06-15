@@ -145,7 +145,7 @@ function generateFiltersList(recipes) {
                 const ingredientItem = document.createElement('li')
                 ingredientItem.classList.add('filters_ingredients_block_list_item')
                 ingredientItem.innerHTML=ingredient.ingredient;
-                generateIngredientsList.appendChild(ingredientItem)
+                generateIngredientsList.appendChild(ingredientItem) 
             }
         })
 
@@ -175,10 +175,11 @@ function generateFiltersList(recipes) {
     console.log("liste des appareils:", appliancesArray)
     console.log("liste des ustensiles:", ustensilsArray)
 
-    const filterInput = document.querySelector('.filters_ustensils_block_input')  
+    createTagIngredients()
+    // const filterInput = document.querySelector('.filters_ustensils_block_input')  
     // const ustensilsItem = document.querySelectorAll('.filters_ustensils_block_list_item')
 
-    let newFilterArray = []
+    // let newFilterArray = []
 
     // filterInput.addEventListener('keyup', (event) => {
     //     generateUstensilsList.innerHTML = ""

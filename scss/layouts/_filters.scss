@@ -29,15 +29,30 @@
             flex-direction: column;
             border-radius:0px 0px 11px 11px;
             & input {
-                width: 100%;
+                width: 84%;
+                height: 36px;
+                margin: 0px 8%;
+                border: 1px solid #C6C6C6;
+                border-radius: 2px;
+                &:focus-visible {
+                    border-color: #FFD15B!important;
+                }
             }
             & ul {
                 text-decoration: none;
+                margin-top: 10px;
                 max-height: 250px;
                 list-style: none;
                 overflow: scroll;
+                padding: 0;
+                border-radius:0px 0px 11px 11px;
                 & li {
+                    width: 100%;
+                    padding-left: 1rem;
+                    padding-bottom: 0.5rem;
+                    padding-top:0.5rem;
                     overflow: hidden;
+                    cursor: pointer;
                 }
                 &::-webkit-scrollbar {
                     display: none;  /* Optional: just make scrollbar invisible */

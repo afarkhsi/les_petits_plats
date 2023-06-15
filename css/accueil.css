@@ -10,8 +10,8 @@ html, body {
 }
 
 body {
-  font-family: "Anton", sans-serif;
-  font-family: "Manrope", sans-serif;
+  font-family: "Anton", sans-serif !important;
+  font-family: "Manrope", sans-serif !important;
   margin: auto;
 }
 
@@ -42,25 +42,38 @@ header img {
   font-weight: 400;
 }
 .search_zone {
-  position: absolute;
   height: 72px;
   top: 60%;
+  max-width: 950px;
+  width: 100%;
+  position: relative;
 }
 .search_zone_input {
   height: 72px;
-  max-width: 950px;
   width: 100%;
   padding: 10px;
   border: none;
 }
 .search_zone_button {
-  transform: translateX(-68px);
+  position: absolute;
   border: none;
   background: none;
+  right: 10px;
+  width: 52px;
 }
 .search_zone_button img {
   height: 52px;
   width: 52px;
+}
+.search_zone_clear {
+  position: absolute;
+  border: none;
+  background: none;
+  display: none;
+  right: 75px;
+}
+.search_zone_clear img {
+  width: 15px;
 }
 
 .card {
@@ -125,6 +138,12 @@ header img {
   font-weight: 400;
 }
 
+.message-no-match-result {
+  margin: 3rem;
+  justify-content: center;
+  display: flex;
+}
+
 .filters {
   width: 100%;
   position: relative;
@@ -156,16 +175,31 @@ header img {
   border-radius: 0px 0px 11px 11px;
 }
 .filters_element div input {
-  width: 100%;
+  width: 84%;
+  height: 36px;
+  margin: 0px 8%;
+  border: 1px solid #C6C6C6;
+  border-radius: 2px;
+}
+.filters_element div input:focus-visible {
+  border-color: #FFD15B !important;
 }
 .filters_element div ul {
   text-decoration: none;
+  margin-top: 10px;
   max-height: 250px;
   list-style: none;
   overflow: scroll;
+  padding: 0;
+  border-radius: 0px 0px 11px 11px;
 }
 .filters_element div ul li {
+  width: 100%;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
   overflow: hidden;
+  cursor: pointer;
 }
 .filters_element div ul::-webkit-scrollbar {
   display: none; /* Optional: just make scrollbar invisible */
@@ -181,6 +215,61 @@ header img {
 
 .hidden {
   display: none;
+}
+
+.tags_ingredients_block {
+  max-width: 195px;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0px 15px;
+  margin-bottom: 5px;
+}
+.tags_ingredients_block_content {
+  margin-bottom: 5px;
+}
+.tags_ingredients_block_img {
+  width: 10px;
+  cursor: pointer;
+}
+.tags_appliances_block {
+  max-width: 195px;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0px 15px;
+  margin-bottom: 5px;
+}
+.tags_appliances_block_content {
+  margin-bottom: 5px;
+}
+.tags_appliances_block_img {
+  width: 10px;
+  cursor: pointer;
+}
+.tags_ustensils_block {
+  max-width: 195px;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0px 15px;
+  margin-bottom: 5px;
+}
+.tags_ustensils_block_content {
+  margin-bottom: 5px;
+}
+.tags_ustensils_block_img {
+  width: 10px;
+  cursor: pointer;
 }
 
 /*!

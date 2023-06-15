@@ -42,6 +42,7 @@
 /*export*/ function searchData() {
     const searchBar = document.querySelector(".search_zone_input")
     const defaultMessage = document.querySelector(".message-no-match-result")
+    const clearSearch = document.querySelector(".search_zone_clear")
 
     let newRecipes = []
 
@@ -65,10 +66,10 @@
                 if (regexInput.test(ingredient.ingredient.toLowerCase())) {
                     isVisible=true; 
                 }
-            });            
-            return isVisible           
+            });       
+            return isVisible 
         })
-        sum(newRecipes)
+        sum(newRecipes) 
         }
         
 
@@ -86,11 +87,13 @@
             recipesData(newRecipes)
             // console.log("nouveau tableau:" , newRecipes)
             generateFiltersList(newRecipes)
+            clearSearch.style.display="block"   
         } else {
             defaultMessage.innerHTML=""
             recipesData(recipes)
             generateFiltersList(recipes)
             sum(recipes)
+            clearSearch.style.display="none"   
         }
     })
 
@@ -101,5 +104,33 @@
         recipesSum.innerHTML=`${data.length} recettes`
         console.log("tableau test :", data)
     }
+
+    /** Fonction reinitialisation input et affichage */
+    function clearSearchBar() {
+        if(searchBar.value !=""){
+            searchBar.value = "";
+            clearSearch.style.display="none"
+            recipesData(recipes)
+            generateFiltersList(recipes)
+            sum(recipes)
+        }
+    }
+    clearSearch.onclick = clearSearchBar
+
+    /** Listener changement affichage bouton search */
+    const searchBtn = document.querySelector(".search_zone_button")
+    const searchBtnImg = document.querySelector(".search_zone_button img")
+
+    function searchBtnHover(){
+        searchBtnImg.src="assets/icones/search_yellow.svg"
+   
+    }
+
+    function searchBtnOut() {
+        searchBtnImg.src="assets/icones/search.svg"    
+    }
+
+    searchBtn.onmouseover = searchBtnHover;
+    searchBtn.onmouseout = searchBtnOut
 }
 
