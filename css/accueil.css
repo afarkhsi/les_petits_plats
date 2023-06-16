@@ -186,6 +186,7 @@ header img {
 }
 .filters_element div ul {
   text-decoration: none;
+  position: relative;
   margin-top: 10px;
   max-height: 250px;
   list-style: none;
@@ -200,6 +201,9 @@ header img {
   padding-top: 0.5rem;
   overflow: hidden;
   cursor: pointer;
+}
+.filters_element div ul li:hover {
+  background-color: #FFD15B;
 }
 .filters_element div ul::-webkit-scrollbar {
   display: none; /* Optional: just make scrollbar invisible */

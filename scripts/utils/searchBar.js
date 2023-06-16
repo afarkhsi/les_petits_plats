@@ -44,7 +44,8 @@
     const defaultMessage = document.querySelector(".message-no-match-result")
     const clearSearch = document.querySelector(".search_zone_clear")
 
-    let newRecipes = []
+    let newRecipes = [];
+    let tagIsVisible = false
 
     /* ajout du listener de comparaison à la saisie dans l'input */
     searchBar.addEventListener("keyup", (event)=>{
@@ -55,19 +56,19 @@
         // console.log('regex', regexInput)
         if(searchBar.value.length > 2) {
             newRecipes = recipes.filter((recipe) => {
-            let isVisible = false;
+            let cardIsVisible = false;
             if (regexInput.test(recipe.name.toLowerCase())){
-                isVisible=true;
+                cardIsVisible=true;
             } else if (regexInput.test(recipe.description.toLowerCase())) {
-                isVisible=true;
+                cardIsVisible=true;
             }
 
             recipe.ingredients.forEach((ingredient)=> {
                 if (regexInput.test(ingredient.ingredient.toLowerCase())) {
-                    isVisible=true; 
+                    cardIsVisible=true; 
                 }
             });       
-            return isVisible 
+            return cardIsVisible 
         })
         sum(newRecipes) 
         }
@@ -83,7 +84,7 @@
 
 
         /** nouveau display en fonction de la recherche */
-        if((searchBar.value.length>2)){
+        if((searchBar.value.length > 2)){
             recipesData(newRecipes)
             // console.log("nouveau tableau:" , newRecipes)
             generateFiltersList(newRecipes)
@@ -95,15 +96,21 @@
             sum(recipes)
             clearSearch.style.display="none"   
         }
+
+
+        const ingredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
+        const ingredientsElementsArray = Array.from(ingredientsElements)
+        console.log("liste des tags actifs:", ingredientsElementsArray)
+
+        if(ingredientsElementsArray.length>0) {
+            tagIsVisible=true
+            console.log("test tags visible true",tagIsVisible)
+        } else {
+            tagIsVisible=false
+            console.log("test tags visible false",tagIsVisible)
+        }
+
     })
-
-    /** Fonction d'actualisation du nombre de recettes affichées */
-    function sum(data){
-
-        const recipesSum = document.querySelector('.filters_element_sum')
-        recipesSum.innerHTML=`${data.length} recettes`
-        console.log("tableau test :", data)
-    }
 
     /** Fonction reinitialisation input et affichage */
     function clearSearchBar() {

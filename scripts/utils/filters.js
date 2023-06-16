@@ -29,6 +29,7 @@ function createIngredientsFilter() {
             filterIngredientsBtn.setAttribute('aria-expanded', 'false')
             filterIngredientsBtn.style.borderRadius = "11px"
         }
+        inputIngredientsFilter()
     });
 
 }
@@ -66,6 +67,7 @@ function createAppliancesFilter() {
             filterAppliancesBtn.setAttribute('aria-expanded', 'false')
             filterAppliancesBtn.style.borderRadius = "11px"
         }
+        inputAppliancesFilter()
     })
 
 }
@@ -103,7 +105,7 @@ function createUstensilsFilter() {
             filterUstensilsBtn.setAttribute('aria-expanded', 'false')
             filterUstensilsBtn.style.borderRadius = "11px"
         }
-        inputTest()
+        inputUstensilsFilter()
     })
 }
 
@@ -129,6 +131,9 @@ function generateFiltersList(recipes) {
     // boucle pour completer les filtres
     recipes.forEach((recipe) => {
         // push les ingredients dans le tableau ingredientsArray
+        // const ingredientsTags = [...document.querySelectorAll('tags_ingredients_block').map((ingredientTag) => ingredientTag.innerText)]
+        // console.log('borrdeeeel:', ingredientsTags)
+        // const ingredientsTagsArray = ingredientsTags.map((ingredient) => ingredient.innerText)
         recipe.ingredients.forEach((ingredient)=> {
             if(ingredientsArray.includes(ingredient.ingredient) === false) {
                 ingredientsArray.push(ingredient.ingredient)
@@ -145,7 +150,13 @@ function generateFiltersList(recipes) {
                 const ingredientItem = document.createElement('li')
                 ingredientItem.classList.add('filters_ingredients_block_list_item')
                 ingredientItem.innerHTML=ingredient.ingredient;
+
+                // const ingredientItemClose = document.createElement('img')
+                // ingredientItemClose.classList.add('filters_element_block_list_close')
+                // ingredientItemClose.src='../assets/icones/close_Tag.svg'
+
                 generateIngredientsList.appendChild(ingredientItem) 
+                // ingredientItem.appendChild(ingredientItemClose)
             }
         })
 
@@ -171,116 +182,83 @@ function generateFiltersList(recipes) {
         })
     })
 
-    console.log("liste des ingrédients:", ingredientsArray)
-    console.log("liste des appareils:", appliancesArray)
-    console.log("liste des ustensiles:", ustensilsArray)
-
+    // console.log("liste des ingrédients:", ingredientsArray)
+    // console.log("liste des appareils:", appliancesArray)
+    // console.log("liste des ustensiles:", ustensilsArray)
+    tagIngredientAdded=false
     createTagIngredients()
-    // const filterInput = document.querySelector('.filters_ustensils_block_input')  
-    // const ustensilsItem = document.querySelectorAll('.filters_ustensils_block_list_item')
+    tagApllianceAdded=false
+    createTagAppliances()
+    tagUstensilsAdded=false
+    createTagUstensils()
+}
 
-    // let newFilterArray = []
 
-    // filterInput.addEventListener('keyup', (event) => {
-    //     generateUstensilsList.innerHTML = ""
-    //     let searchedName = event.target.value;
-    //     console.log('saisie clavier:', searchedName)
-
-    //     const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
-
-    //     newFilterArray = ustensilsArray.filter((ustensil) => {
-    //         let isVisible = false
-    //         if (regexInput.test(ustensil.toLowerCase()) /*&& newFilterArray.includes(ustensil) === false*/){
-    //             isVisible=true
-    //             // newFilterArray.push(ustensil)
-    //             // const newUstensilsItem = document.querySelector('.filters_ustensils_block_list_item')
-    //             // newUstensilsItem.innerHTML=ustensil
-    //             // console.log('new ustensils:', newUstensilsItem )
-    //             // generateUstensilsList.appendChild(newUstensilsItem)
-    //         }            
-    //         return isVisible
-    //     })
-
-    //     console.log(newFilterArray)
-
-    //     if(newFilterArray.length>0) {
-
-    //     } else {
-
-    //     }
-    // })
-
-    // filterInput.addEventListener('keyup', (event) => {
-    //     generateUstensilsList.innerHTML = ""
-    //     let searchedName = event.target.value;
-    //     console.log('saisie clavier:', searchedName)
-
-    //     const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
-
-    //     newFilterArray = ustensilsArray.filter((ustensil) => {
-    //         let isVisible = false
-    //         if (regexInput.test(ustensil.toLowerCase()) /*&& newFilterArray.includes(ustensil) === false*/){
-    //             isVisible=true
-    //             // newFilterArray.push(ustensil)
-    //             // const newUstensilsItem = document.querySelector('.filters_ustensils_block_list_item')
-    //             // newUstensilsItem.innerHTML=ustensil
-    //             // console.log('new ustensils:', newUstensilsItem )
-    //             // generateUstensilsList.appendChild(newUstensilsItem)
-    //         }            
-    //         return isVisible
-    //     })
-
-    //     console.log(newFilterArray)
-
-    //     if(newFilterArray.length>0) {
-
-    //     } else {
-
-    //     }
-    // })
+/** Fonction test recherche input filtre ingredients */
+function inputIngredientsFilter() {
+    const filterInput = document.querySelector('.filters_ingredients_block_input') 
+    filterInput.addEventListener('keyup', () => {
+        // generateUstensilsList.innerHTML = ""
+        const ingredientsItem = document.querySelectorAll('.filters_ingredients_block_list_item')
+        const filterInput = document.querySelector('.filters_ingredients_block_input') 
+        const searchedValue = filterInput.value
     
-
-}
-
-
-// function searchInputFilter () {
-
-// }
-
-// function inputFilter() {
-
-// }
-
-
-/** Fonction test recherche input filtre */
-function testItemsFilter() {
-
-    // const ustensilsBlock = document.querySelectorAll('.filters_ustensils_block_list')
-    const ustensilsItem = document.querySelectorAll('.filters_ustensils_block_list_item')
-    const filterInput = document.querySelector('.filters_ustensils_block_input') 
-    const searchedValue = filterInput.value
-
-    const regexInput = new RegExp (`${searchedValue.trim().toLowerCase()}`);
-
-    ustensilsItem.forEach((item)=> {
-        if(regexInput.test(item.innerHTML.toLowerCase())){
-            item.classList.remove('hidden')
-        } else {
-            item.classList.add('hidden')
-        }
-        return (ustensilsItem)
+        const regexInput = new RegExp (`${searchedValue.trim().toLowerCase()}`);
+    
+        ingredientsItem.forEach((item)=> {
+            if(regexInput.test(item.innerHTML.toLowerCase())){
+                item.classList.remove('hidden')
+            } else {
+                item.classList.add('hidden')
+            }
+            return (ingredientsItem)
+        })
     })
-
-
-
-
 }
 
-/** fonction re */
-function inputTest() {
+
+/** Fonction test recherche input filtre appliances */
+function inputAppliancesFilter() {
+    const filterInput = document.querySelector('.filters_appliances_block_input') 
+    filterInput.addEventListener('keyup', () => {
+        // generateUstensilsList.innerHTML = ""
+        const appliancesItem = document.querySelectorAll('.filters_appliances_block_list_item')
+        const filterInput = document.querySelector('.filters_appliances_block_input') 
+        const searchedValue = filterInput.value
+    
+        const regexInput = new RegExp (`${searchedValue.trim().toLowerCase()}`);
+    
+        appliancesItem.forEach((item)=> {
+            if(regexInput.test(item.innerHTML.toLowerCase())){
+                item.classList.remove('hidden')
+            } else {
+                item.classList.add('hidden')
+            }
+            return (appliancesItem)
+        })
+    })
+}
+
+
+
+/** Fonction test recherche input filtre ustensils */
+function inputUstensilsFilter() {
     const filterInput = document.querySelector('.filters_ustensils_block_input') 
     filterInput.addEventListener('keyup', () => {
         // generateUstensilsList.innerHTML = ""
-        testItemsFilter() 
+        const ustensilsItem = document.querySelectorAll('.filters_ustensils_block_list_item')
+        const filterInput = document.querySelector('.filters_ustensils_block_input') 
+        const searchedValue = filterInput.value
+    
+        const regexInput = new RegExp (`${searchedValue.trim().toLowerCase()}`);
+    
+        ustensilsItem.forEach((item)=> {
+            if(regexInput.test(item.innerHTML.toLowerCase())){
+                item.classList.remove('hidden')
+            } else {
+                item.classList.add('hidden')
+            }
+            return (ustensilsItem)
+        })
     })
 }

@@ -40,6 +40,7 @@
             }
             & ul {
                 text-decoration: none;
+                position: relative;
                 margin-top: 10px;
                 max-height: 250px;
                 list-style: none;
@@ -53,6 +54,9 @@
                     padding-top:0.5rem;
                     overflow: hidden;
                     cursor: pointer;
+                    &:hover{
+                        background-color: #FFD15B;
+                    }
                 }
                 &::-webkit-scrollbar {
                     display: none;  /* Optional: just make scrollbar invisible */
@@ -69,6 +73,13 @@
         }
     }       
 }
+
+// .filters_element_block_list_close {
+
+//     width: 17px;
+
+//     // display: none;
+// }
 
 // #test {
 //     width: 500px;
