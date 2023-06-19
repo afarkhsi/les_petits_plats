@@ -32,11 +32,11 @@ function recipesData(data) {
 }
 
 function init () {
-    recipesData(recipes)
     searchData()
     createIngredientsFilter()
     createAppliancesFilter()
     createUstensilsFilter()
+    recipesData(recipes)
     generateFiltersList(recipes)
 }
 
