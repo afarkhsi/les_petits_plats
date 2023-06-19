@@ -121,7 +121,7 @@ function generateFiltersList(recipes) {
     const generateUstensilsList = document.querySelector('.filters_ustensils_block_list');
 
     const ingredientsArray = []
-    console.log('tab ingre', ingredientsArray)
+    // console.log('tab ingre', ingredientsArray)
     const appliancesArray = []
     const ustensilsArray = []
 

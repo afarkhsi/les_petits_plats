@@ -12,29 +12,48 @@ function searchData() {
     if(searchBar.value.length > 2) {
         searchedName = searchBar.value
         const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
-        let index = 0
-        while(index < recipes.length) {
-            if(newRecipes.includes(recipes[index])===false) {
-                let cardIsVisible = false;
-                if (regexInput.test(recipes[index].name.toLowerCase())){
-                    cardIsVisible=true;
-                } else if (regexInput.test(recipes[index].description.toLowerCase())) {
-                    cardIsVisible=true;
-                }
-                for (let i = 0; i < recipes[index].ingredients.length; i++) {
-                    if (regexInput.test(recipes[index].ingredients[i].ingredient.toLowerCase())) {
-                        cardIsVisible=true; 
-                    }
-                }
-                if(cardIsVisible===true) {
-                    newRecipes.push(recipes[index])
-                }                    
+        // let index = 0
+        // while(index < recipes.length) {
+        //     if(newRecipes.includes(recipes[index])===false) {
+        //         let cardIsVisible = false;
+        //         if (regexInput.test(recipes[index].name.toLowerCase())){
+        //             cardIsVisible=true;
+        //         } else if (regexInput.test(recipes[index].description.toLowerCase())) {
+        //             cardIsVisible=true;
+        //         }
+        //         for (let i = 0; i < recipes[index].ingredients.length; i++) {
+        //             if (regexInput.test(recipes[index].ingredients[i].ingredient.toLowerCase())) {
+        //                 cardIsVisible=true; 
+        //             }
+        //         }
+        //         if(cardIsVisible===true) {
+        //             newRecipes.push(recipes[index])
+        //         }                    
+        //     }
+
+        for(let recipe of recipes) {
+            let cardIsVisible = false;
+            if (regexInput.test(recipe.name.toLowerCase())){
+                cardIsVisible=true;
+            } else if (regexInput.test(recipe.description.toLowerCase())) {
+                cardIsVisible=true;
             }
-        index++
+            for (let i = 0; i < recipe.ingredients.length; i++) {
+                if (regexInput.test(recipe.ingredients[i].ingredient.toLowerCase())) {
+                    cardIsVisible=true; 
+                }
+            }
+            if(cardIsVisible===true) {
+                newRecipes.push(recipe)
+            }               
+        }
+        // index++
         sum(newRecipes) 
         generateFiltersList(newRecipes)
-        }    
-    }
+        }
+        
+
+
 
     /** affichage du message par default lorsqu'aucune recette n'est trouvée */
     if(newRecipes.length>0) {
