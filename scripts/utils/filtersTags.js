@@ -64,7 +64,7 @@ function createTagIngredients(){
                     tagIngredientAdded = false
                     // console.log(tagAded)
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     // sum(recipes) 
                     return false
                 })       
@@ -84,6 +84,7 @@ function createTagIngredients(){
     } 
 }
 
+let tagAppliancesAdded = false
 function createTagAppliances(){
     let tagAppliancesAdded = false
     // const ingredientsTags = document.querySelectorAll(".tags_ingredients_block_content")
@@ -125,7 +126,7 @@ function createTagAppliances(){
                     tagAppliancesAdded = false
                     // console.log(tagAded)
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     // sum(recipes) 
                     return false
                 })       
@@ -187,7 +188,7 @@ function createTagUstensils(){
                     tagUstensilsAdded = false
                     // console.log(tagAded)
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     // sum(recipes) 
                     return false
                 })       
