@@ -5,10 +5,10 @@ function searchData() {
     const defaultMessage = document.querySelector(".message-no-match-result")
     const clearSearch = document.querySelector(".search_zone_clear")
     // let recipesDefault= recipes
-    let newRecipes = [];
+    // let newRecipes = [];
     let tagIsVisible = false
 
-
+    newRecipes = []
     let searchedName ;
     if(searchBar.value.length > 2) {
         searchedName = searchBar.value
@@ -57,19 +57,30 @@ function searchData() {
         clearSearch.style.display="none"             
     }
 
+    /** si un tag est actif les tableaux de la fonction recipesDataWithTags sont utilisé pour actuliser la page*/
+    const tagsIngredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
+    const tagsIngredientsElementsArray = Array.from(tagsIngredientsElements)
+    console.log("liste des tags ingredients actifs:", tagsIngredientsElementsArray)
 
-    const ingredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
-    const ingredientsElementsArray = Array.from(ingredientsElements)
-    console.log("liste des tags actifs:", ingredientsElementsArray)
+    const tagsAppliancesElements = document.querySelectorAll(".tags_appliances_block_content")
+    const tagsAppliancesElementsArray = Array.from(tagsAppliancesElements)
+    console.log("liste des tags appareils actifs:", tagsAppliancesElementsArray)
 
-    if(ingredientsElementsArray.length>0) {
+    const tagsUstensilsElements = document.querySelectorAll(".tags_ustensils_block_content")
+    const tagsUstensilsElementsArray = Array.from(tagsUstensilsElements)
+    console.log("liste des tags ustensils actifs:", tagsUstensilsElementsArray)
+
+    if(tagsIngredientsElementsArray.length>0 ||
+        tagsAppliancesElementsArray.length>0 ||
+        tagsUstensilsElementsArray.length>0) {
         tagIsVisible=true
-        console.log("test tags visible true",tagIsVisible)
-    } else {
-        tagIsVisible=false
-        console.log("test tags visible false",tagIsVisible)
+        if(newRecipes.length>0){
+            newRecipes=recipesDataWithTags(newRecipes)
+        } else {
+            newRecipes=recipesDataWithTags(recipes)
+        }
     }
-
+   
     /** Fonction reinitialisation input et affichage */
     function clearSearchBar() {
         if(searchBar.value !=""){
