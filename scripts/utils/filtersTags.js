@@ -75,7 +75,7 @@ function createTagIngredients(){
                 tagIngredientBlock.appendChild(tagIngredientClose)
                 // element.style.backgroundColor = '#FFD15B'
                 searchData()
-                recipesDataWithTags(recipes)
+                // recipesDataWithTags(recipes)
                 console.log('ajout tagingredientAdded test true', tagIngredientAdded)  
                 // sum(recipes) 
             })         
@@ -138,7 +138,6 @@ function createTagAppliances(){
                 tagApplianceBlock.appendChild(tagApplianceClose)
                 // element.style.backgroundColor = '#FFD15B'
                 searchData()
-                recipesDataWithTags(recipes)
                 console.log('ajout tagApplicancesAdded test true', tagAppliancesAdded)  
                 // sum(recipes) 
             })         
@@ -201,7 +200,6 @@ function createTagUstensils(){
                 tagUstensilBlock.appendChild(tagUstensilClose)
                 // element.style.backgroundColor = '#FFD15B'
                 searchData()
-                recipesDataWithTags(recipes)
                 console.log('ajout tagustensilsAdded test true', tagUstensilsAdded)  
                 // sum(recipes) 
             })         
@@ -226,13 +224,13 @@ function recipesDataWithTags(recipes) {
     const ustensilsElementsArray = Array.from(ustensilsElements)
     console.log("liste des tags ustensils actifs:", ustensilsElements)
 
-    let recipesFilter = []
+    let newRecipes = []
 
     let ingredientsElementsTagged = []
     let appliancesElementsTagged = []
     let ustensilsElementsTagged = []
 
-    sum(recipesFilter)
+    sum(newRecipes)
       
     ingredientsElementsTagged = ingredientsElementsArray.map((element) => element.innerHTML)
     appliancesElementsTagged = appliancesElementsArray.map((element) => element.innerHTML)
@@ -242,7 +240,7 @@ function recipesDataWithTags(recipes) {
     console.log('Text des tags ingredients affiché:', ingredientsElementsTagged)
     console.log('Text des tags appliances affiché:', appliancesElementsTagged)
 
-    recipesFilter = recipes.filter((recipe) => {
+    newRecipes = recipes.filter((recipe) => {
         let isVisible = false;
 
         let ingredientFound = false;
@@ -312,11 +310,11 @@ function recipesDataWithTags(recipes) {
     // console.log('tab appli', newRecipeAppliances)
         return isVisible
     })
-    console.log('tableau nvx filtré', recipesFilter)
-    generateFiltersList(recipesFilter)
-    recipesData(recipesFilter)
-    sum(recipesFilter)
-    return recipesFilter
+    console.log('tableau nvx filtré', newRecipes)
+    generateFiltersList(newRecipes)
+    recipesData(newRecipes)
+    sum(newRecipes)
+    return newRecipes
 }
 
 /** Fonction d'actualisation du nombre de recettes affichées */

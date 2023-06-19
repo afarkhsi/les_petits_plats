@@ -3,7 +3,7 @@ function searchData() {
     const defaultMessage = document.querySelector(".message-no-match-result")
     const clearSearch = document.querySelector(".search_zone_clear")
 
-    let newRecipes = [];
+    newRecipes = [];
     let tagIsVisible = false
 
     /* ajout du listener de comparaison à la saisie dans l'input */
@@ -29,7 +29,8 @@ function searchData() {
                 });       
                 return cardIsVisible 
             })
-        sum(newRecipes) 
+        sum(newRecipes)
+        generateFiltersList(newRecipes)
         }
         
 
@@ -46,30 +47,38 @@ function searchData() {
         if((searchBar.value.length > 2)){
             recipesData(newRecipes)
             // console.log("nouveau tableau:" , newRecipes)
-            generateFiltersList(newRecipes)
             clearSearch.style.display="block"   
         } else {
             defaultMessage.innerHTML=""
             recipesData(recipes)
-            generateFiltersList(recipes)
             sum(recipes)
             clearSearch.style.display="none"   
         }
-
-
-        const ingredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
-        const ingredientsElementsArray = Array.from(ingredientsElements)
-        console.log("liste des tags actifs:", ingredientsElementsArray)
-
-        if(ingredientsElementsArray.length>0) {
-            tagIsVisible=true
-            console.log("test tags visible true",tagIsVisible)
-        } else {
-            tagIsVisible=false
-            console.log("test tags visible false",tagIsVisible)
-        }
-
     })
+
+    /** si un tag est actif les tableaux de la fonction recipesDataWithTags sont utilisé pour actuliser la page*/
+    const tagsIngredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
+    const tagsIngredientsElementsArray = Array.from(tagsIngredientsElements)
+    console.log("liste des tags ingredients actifs:", tagsIngredientsElementsArray)
+
+    const tagsAppliancesElements = document.querySelectorAll(".tags_appliances_block_content")
+    const tagsAppliancesElementsArray = Array.from(tagsAppliancesElements)
+    console.log("liste des tags appareils actifs:", tagsAppliancesElementsArray)
+
+    const tagsUstensilsElements = document.querySelectorAll(".tags_ustensils_block_content")
+    const tagsUstensilsElementsArray = Array.from(tagsUstensilsElements)
+    console.log("liste des tags ustensils actifs:", tagsUstensilsElementsArray)
+
+    if(tagsIngredientsElementsArray.length>0 ||
+    tagsAppliancesElementsArray.length>0 ||
+    tagsUstensilsElementsArray.length>0) {
+        tagIsVisible=true
+        if(newRecipes.length>0){
+            newRecipes=recipesDataWithTags(newRecipes)
+        } else {
+            newRecipes=recipesDataWithTags(recipes)
+        }
+    }
 
     /** Fonction reinitialisation input et affichage */
     function clearSearchBar() {
