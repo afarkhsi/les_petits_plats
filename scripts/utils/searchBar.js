@@ -56,20 +56,20 @@
         // console.log('regex', regexInput)
         if(searchBar.value.length > 2) {
             newRecipes = recipes.filter((recipe) => {
-            let cardIsVisible = false;
-            if (regexInput.test(recipe.name.toLowerCase())){
-                cardIsVisible=true;
-            } else if (regexInput.test(recipe.description.toLowerCase())) {
-                cardIsVisible=true;
-            }
-
-            recipe.ingredients.forEach((ingredient)=> {
-                if (regexInput.test(ingredient.ingredient.toLowerCase())) {
-                    cardIsVisible=true; 
+                let cardIsVisible = false;
+                if (regexInput.test(recipe.name.toLowerCase())){
+                    cardIsVisible=true;
+                } else if (regexInput.test(recipe.description.toLowerCase())) {
+                    cardIsVisible=true;
                 }
-            });       
-            return cardIsVisible 
-        })
+
+                recipe.ingredients.forEach((ingredient)=> {
+                    if (regexInput.test(ingredient.ingredient.toLowerCase())) {
+                        cardIsVisible=true; 
+                    }
+                });       
+                return cardIsVisible 
+            })
         sum(newRecipes) 
         }
         
