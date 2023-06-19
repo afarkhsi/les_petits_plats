@@ -1,45 +1,4 @@
-// import {recipesData, recipes} from '../index.js'
-
-// // V1 FONCTIONNELLE
-// function searchData() {
-//     const searchBar = document.querySelector(".search_zone_input")
-//     const defaultMessage = document.querySelector(".message-no-match-result")
-//     const cards = document.querySelectorAll('.cards')
-
-
-//     // console.log('affichage des cards', cards)
-
-//     searchBar.addEventListener("keyup", (event)=>{
-//         const searchedName = event.target.value.toLowerCase()
-//         const cardsLength = cards.length
-
-//         cards.forEach(card => {
-//             const isVisible = card.textContent.toLowerCase().includes(searchedName)
-//             const cardVerif = false
-//             if(searchedName.length > 2 && !isVisible) {
-//                 card.classList.add("hide")
-//                 card.style.display= 'none'
-//             } else {         
-//                 card.classList.remove("hide")
-//                 card.style.display= 'block'
-//             }
-//         })
-
-//         const cardsHiddenLength = document.getElementsByClassName('hide').length
-//         if(cardsLength === cardsHiddenLength) {
-//             // console.log('ca filtre!', cardsLength, cardsHiddenLength)
-//             defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchedName}’ vous pouvez chercher «
-//             tarte aux pommes », « poisson », etc. `
-//         } else {
-//             // console.log('ca supprime!', cardsLength, cardsHiddenLength)
-//             defaultMessage.innerHTML = ""
-//         }
-//     })
-// }
-
-
-//V2 FONCTIONNELLE
-/*export*/ function searchData() {
+function searchData() {
     const searchBar = document.querySelector(".search_zone_input")
     const defaultMessage = document.querySelector(".message-no-match-result")
     const clearSearch = document.querySelector(".search_zone_clear")
