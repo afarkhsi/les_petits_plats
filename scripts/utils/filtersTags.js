@@ -253,9 +253,14 @@ function recipesDataWithTags(recipes) {
         let sumApplianceFound = 0
         let sumUstensilFound = 0
 
-        let newRecipeIngredients = recipe.ingredients.map(({ingredient}) => ingredient);
-        let newRecipeAppliances = recipe.appliance
-        let newRecipeUstensils = recipe.ustensils.map((ustensil) => ustensil);
+        let newRecipeIngredients =[]
+        newRecipeIngredients = recipe.ingredients.map(({ingredient}) => ingredient);
+
+        let newRecipeAppliances = []
+        newRecipeAppliances.push(recipe.appliance)
+
+        let newRecipeUstensils =[]
+        newRecipeUstensils = recipe.ustensils.map((ustensil) => ustensil);
 
 
         console.log("new tab appliances", newRecipeAppliances)
