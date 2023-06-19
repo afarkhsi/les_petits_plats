@@ -4,8 +4,7 @@ const searchBar = document.querySelector(".search_zone_input")
 function searchData() {
     const defaultMessage = document.querySelector(".message-no-match-result")
     const clearSearch = document.querySelector(".search_zone_clear")
-    // let recipesDefault= recipes
-    // let newRecipes = [];
+
     let tagIsVisible = false
 
     newRecipes = []
