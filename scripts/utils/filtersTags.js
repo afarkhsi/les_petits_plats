@@ -81,14 +81,14 @@ function createTagIngredients(){
 }
 
 
-let tagAppliancesAdded = false
 
 function createTagAppliances(){
+    let tagAppliancesAdded = false
     // const ingredientsTags = document.querySelectorAll(".tags_ingredients_block_content")
     // const ingredientsTagsArray = Array.from(ingredientsTags)
     // console.log('tags array test doublon', ingredientsTagsArray)
     
-    console.log('ajout tagingredientAdded test false', tagAppliancesAdded)
+    // console.log('ajout tagingredientAdded test false', tagAppliancesAdded)
     if(tagAppliancesAdded === false){
         const newAppliancesArray = Array.from(appliancesItems)
         // console.log('test ingredients array',newIngredientArray)
@@ -119,10 +119,10 @@ function createTagAppliances(){
                 tagApplianceClose.addEventListener('click',()=>{
                     tagApplianceBlock.style.display='none'
                     tagApplianceBlock.innerHTML=""
-                    searchData()
                     tagAppliancesAdded = false
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    searchData()
+                    // recipesDataWithTags(recipes)
                     return false
                 })       
 
@@ -135,8 +135,8 @@ function createTagAppliances(){
                 console.log('ajout tagApplicancesAdded test true', tagAppliancesAdded)  
             })         
         })
+        tagAppliancesAdded=true
     }
-    tagAppliancesAdded=true
 }
 
 
@@ -202,15 +202,15 @@ function createTagUstensils(){
 //Version finale
 
 function recipesDataWithTags(recipes) {
-    const ingredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
+    const ingredientsElements = document.querySelectorAll(".tags_ingredients_block .tags_ingredients_block_content")
     const ingredientsElementsArray = Array.from(ingredientsElements)
     console.log("liste des tags ingredients actifs:", ingredientsElementsArray)
 
-    const appliancesElements = document.querySelectorAll(".tags_appliances_block_content")
+    const appliancesElements = document.querySelectorAll(".tags_appliances_block .tags_appliances_block_content")
     const appliancesElementsArray = Array.from(appliancesElements)
     console.log("liste des tags appliances actifs:", appliancesElements)
 
-    const ustensilsElements = document.querySelectorAll(".tags_ustensils_block_content")
+    const ustensilsElements = document.querySelectorAll(".tags_ustensils_block .tags_ustensils_block_content")
     const ustensilsElementsArray = Array.from(ustensilsElements)
     console.log("liste des tags ustensils actifs:", ustensilsElements)
 
@@ -223,7 +223,7 @@ function recipesDataWithTags(recipes) {
     sum(newRecipes)
       
     ingredientsElementsTagged = ingredientsElementsArray.map((element) => element.innerHTML)
-    appliancesElementsTagged = appliancesElementsArray.map((element) => element.innerHTML)
+    appliancesElementsTagged = appliancesElementsArray.map((element) => element.innerText)
     ustensilsElementsTagged = ustensilsElementsArray.map((element) => element.innerHTML)
 
 
@@ -284,9 +284,11 @@ function recipesDataWithTags(recipes) {
         }
 
         
-        if(appliancesElementsTagged.length === sumApplianceFound) {
-            applianceFound = true
-        }
+        if(appliancesElementsTagged.length > 0){
+            if(sumApplianceFound>0) {
+                 applianceFound = true;
+            }     
+        } else applianceFound = true;
 
         if(ustensilsElementsTagged.length === sumUstensilFound) {
             ustensilFound = true

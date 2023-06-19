@@ -106,3 +106,14 @@
 .hidden {
     display: none;
 }
+
+.test_filters {
+    display: flex;
+    flex-direction: row;
+}
+
+.test_filters_element_block {
+    height: 200px;
+    // overflow: hidden;
+    overflow: scroll;
+}

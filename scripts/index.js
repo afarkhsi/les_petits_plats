@@ -21,10 +21,10 @@
 
 
 
-const recipesContainer = document.querySelector(".recipes_cards")
 
 // CREATION DES CARDS
 function recipesData(data) {
+    const recipesContainer = document.querySelector(".recipes_cards")
     recipesContainer.innerHTML= '';
     data.forEach((recipe) => {
         recipesContainer.appendChild(createRecipeCard(recipe))
@@ -32,11 +32,12 @@ function recipesData(data) {
 }
 
 function init () {
+    recipesData(recipes)
     searchData()   
+    // generateFiltersListTEST(recipes)
     createIngredientsFilter()
     createAppliancesFilter()
     createUstensilsFilter()
-    recipesData(recipes)
     generateFiltersList(recipes)
 }
 

@@ -11,6 +11,7 @@ function searchData() {
     newRecipes = []
     let searchedName ;
     if(searchBar.value.length > 2) {
+        clearSearch.style.display="block" 
         searchedName = searchBar.value
         const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
         let index = 0
@@ -34,20 +35,33 @@ function searchData() {
         index++
         sum(newRecipes) 
         generateFiltersList(newRecipes)
+        // generateFiltersListTEST(newRecipes)
         }    
     }
 
     /** affichage du message par default lorsqu'aucune recette n'est trouvée */
     if(newRecipes.length>0) {
         defaultMessage.innerHTML=""
+        recipesData(newRecipes)
     } else {
+        recipesData(newRecipes)
         defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchBar.value}’ vous pouvez chercher «
             tarte aux pommes », « poisson », etc. `
     }
 
 
+    // if(((searchBar.value === "" || (searchBar.value.length<3))&& tagIsVisible===false )){
+    //     // generateFiltersList(recipes)
+    //     recipesData(recipes)
+    //     defaultMessage.innerHTML="" 
+    //     sum(recipes)
+    //     clearSearch.style.display="none" 
+    // } else {
+    //     recipesData(newRecipes)
+    //     clearSearch.style.display="block"  
+    // }
     /** nouveau display en fonction de la recherche */
-    if((searchBar.value.length > 2)){
+    if((searchBar.value.length > 2) && tagIsVisible===true ){
         recipesData(newRecipes)
         clearSearch.style.display="block"   
     } else {
@@ -58,15 +72,15 @@ function searchData() {
     }
 
     /** si un tag est actif les tableaux de la fonction recipesDataWithTags sont utilisé pour actuliser la page*/
-    const tagsIngredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
+    const tagsIngredientsElements = document.querySelectorAll(".tags_ingredients_block .tags_ingredients_block_content")
     const tagsIngredientsElementsArray = Array.from(tagsIngredientsElements)
     console.log("liste des tags ingredients actifs:", tagsIngredientsElementsArray)
 
-    const tagsAppliancesElements = document.querySelectorAll(".tags_appliances_block_content")
+    const tagsAppliancesElements = document.querySelectorAll(".tags_appliances_block .tags_appliances_block_content")
     const tagsAppliancesElementsArray = Array.from(tagsAppliancesElements)
     console.log("liste des tags appareils actifs:", tagsAppliancesElementsArray)
 
-    const tagsUstensilsElements = document.querySelectorAll(".tags_ustensils_block_content")
+    const tagsUstensilsElements = document.querySelectorAll(".tags_ustensils_block .tags_ustensils_block_content")
     const tagsUstensilsElementsArray = Array.from(tagsUstensilsElements)
     console.log("liste des tags ustensils actifs:", tagsUstensilsElementsArray)
 
@@ -88,6 +102,7 @@ function searchData() {
             clearSearch.style.display="none"
             recipesData(recipes)
             generateFiltersList(recipes)
+            // generateFiltersListTEST(recipes)
             sum(recipes)
         }
     }

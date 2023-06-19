@@ -120,10 +120,10 @@ function generateFiltersList(recipes) {
     const generateAppliancesList = document.querySelector('.filters_appliances_block_list');
     const generateUstensilsList = document.querySelector('.filters_ustensils_block_list');
 
-    const ingredientsArray = []
+    const ingredientsArray = [];
     console.log('tab ingre', ingredientsArray)
-    const appliancesArray = []
-    const ustensilsArray = []
+    const appliancesArray = [];
+    const ustensilsArray = [];
 
     generateIngredientsList.innerHTML = "";
     generateAppliancesList.innerHTML = "";
@@ -132,53 +132,37 @@ function generateFiltersList(recipes) {
     // boucle pour completer les filtres
     recipes.forEach((recipe) => {
         // push les ingredients dans le tableau ingredientsArray
-        // const ingredientsTags = [...document.querySelectorAll('tags_ingredients_block').map((ingredientTag) => ingredientTag.innerText)]
-        // console.log('borrdeeeel:', ingredientsTags)
-        // const ingredientsTagsArray = ingredientsTags.map((ingredient) => ingredient.innerText)
+        const tagIngredient = [...document.querySelectorAll('.tag_ingredient_block')].map( (tagIngredient) => tagIngredient.innerText); 
         recipe.ingredients.forEach((ingredient)=> {
-            if(ingredientsArray.includes(ingredient.ingredient) === false) {
-                ingredientsArray.push(ingredient.ingredient)
-                // ingredientsArray.sort((a, b) => {
-                //     if (a < b) {
-                //       return -1;
-                //     }
-                //     if (a > b) {
-                //       return 1;
-                //     }
-                
-                //     return 0
-                // });
-                const ingredientItem = document.createElement('li')
-                ingredientItem.classList.add('filters_ingredients_block_list_item')
+            if(ingredientsArray.includes(ingredient.ingredient) === false && tagIngredient.includes(ingredient) === false) {
+                ingredientsArray.push(ingredient.ingredient);
+                const ingredientItem = document.createElement('li');
+                ingredientItem.classList.add('filters_ingredients_block_list_item');
                 ingredientItem.innerHTML=ingredient.ingredient;
-
-                // const ingredientItemClose = document.createElement('img')
-                // ingredientItemClose.classList.add('filters_element_block_list_close')
-                // ingredientItemClose.src='../assets/icones/close_Tag.svg'
-
-                generateIngredientsList.appendChild(ingredientItem) 
-                // ingredientItem.appendChild(ingredientItemClose)
+                generateIngredientsList.appendChild(ingredientItem) ;
             }
         })
 
         // push les appareils dans le tableau appliancesArray
         const appliance = recipe.appliance
-        if(appliancesArray.includes(appliance) === false) {
-            appliancesArray.push(appliance)
-            const appliancesItem = document.createElement('li')
-            appliancesItem.classList.add('filters_appliances_block_list_item')
-            appliancesItem.innerHTML=appliance;
-            generateAppliancesList.appendChild(appliancesItem)
+        const tagAppliance = [...document.querySelectorAll('.tag_appliances_block')].map( (tagAppliance) => tagAppliance.innerText); 
+        if(appliancesArray.includes(appliance) === false && tagAppliance.includes(appliance) === false) {
+            appliancesArray.push(appliance);
+            const appliancesItem = document.createElement('li');
+            appliancesItem.classList.add('filters_appliances_block_list_item');
+            appliancesItem.innerHTML=appliance;;
+            generateAppliancesList.appendChild(appliancesItem);
         }
 
         // push les appareils dans le tableau ustensilsArray
+        const tagUstensil = [...document.querySelectorAll('.tag_ustensils_block')].map( (tagUstensil) => tagUstensil.innerText); 
         recipe.ustensils.forEach((ustensil)=> {
-            if(ustensilsArray.includes(ustensil) === false) {
-                ustensilsArray.push(ustensil)
-                const ustensilsItem = document.createElement('li')
-                ustensilsItem.classList.add('filters_ustensils_block_list_item')
-                ustensilsItem.innerHTML=ustensil
-                generateUstensilsList.appendChild(ustensilsItem)
+            if(ustensilsArray.includes(ustensil) === false && tagUstensil.includes(ustensil) === false) {
+                ustensilsArray.push(ustensil);
+                const ustensilsItem = document.createElement('li');
+                ustensilsItem.classList.add('filters_ustensils_block_list_item');
+                ustensilsItem.innerHTML=ustensil;
+                generateUstensilsList.appendChild(ustensilsItem);
             }
         })
     })
