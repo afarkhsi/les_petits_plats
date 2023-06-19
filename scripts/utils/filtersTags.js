@@ -84,10 +84,8 @@ function createTagIngredients(){
     } 
 }
 
-
-let tagAppliancesAdded = false
-
 function createTagAppliances(){
+    let tagAppliancesAdded = false
     // const ingredientsTags = document.querySelectorAll(".tags_ingredients_block_content")
     // const ingredientsTagsArray = Array.from(ingredientsTags)
     // console.log('tags array test doublon', ingredientsTagsArray)
@@ -200,7 +198,7 @@ function createTagUstensils(){
                 tagUstensilBlock.appendChild(tagUstensilClose)
                 // element.style.backgroundColor = '#FFD15B'
                 searchData()
-                console.log('ajout tagustensilsAdded test true', tagUstensilsAdded)  
+                // console.log('ajout tagustensilsAdded test true', tagUstensilsAdded)  
                 // sum(recipes) 
             })         
         })
@@ -214,15 +212,15 @@ function createTagUstensils(){
 function recipesDataWithTags(recipes) {
     const ingredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
     const ingredientsElementsArray = Array.from(ingredientsElements)
-    console.log("liste des tags ingredients actifs:", ingredientsElementsArray)
+    // console.log("liste des tags ingredients actifs:", ingredientsElementsArray)
 
     const appliancesElements = document.querySelectorAll(".tags_appliances_block_content")
     const appliancesElementsArray = Array.from(appliancesElements)
-    console.log("liste des tags appliances actifs:", appliancesElements)
+    // console.log("liste des tags appliances actifs:", appliancesElements)
 
     const ustensilsElements = document.querySelectorAll(".tags_ustensils_block_content")
     const ustensilsElementsArray = Array.from(ustensilsElements)
-    console.log("liste des tags ustensils actifs:", ustensilsElements)
+    // console.log("liste des tags ustensils actifs:", ustensilsElements)
 
     let newRecipes = []
 
@@ -237,8 +235,8 @@ function recipesDataWithTags(recipes) {
     ustensilsElementsTagged = ustensilsElementsArray.map((element) => element.innerHTML)
 
 
-    console.log('Text des tags ingredients affiché:', ingredientsElementsTagged)
-    console.log('Text des tags appliances affiché:', appliancesElementsTagged)
+    // console.log('Text des tags ingredients affiché:', ingredientsElementsTagged)
+    // console.log('Text des tags appliances affiché:', appliancesElementsTagged)
 
     newRecipes = recipes.filter((recipe) => {
         let isVisible = false;
@@ -261,7 +259,7 @@ function recipesDataWithTags(recipes) {
         newRecipeUstensils = recipe.ustensils.map((ustensil) => ustensil);
 
 
-        console.log("new tab appliances", newRecipeAppliances)
+        // console.log("new tab appliances", newRecipeAppliances)
 
         /** Incrémentation des compteurs */
         if(ingredientsElementsTagged.length > 0){
@@ -310,7 +308,7 @@ function recipesDataWithTags(recipes) {
     // console.log('tab appli', newRecipeAppliances)
         return isVisible
     })
-    console.log('tableau nvx filtré', newRecipes)
+    // console.log('tableau nvx filtré', newRecipes)
     generateFiltersList(newRecipes)
     recipesData(newRecipes)
     sum(newRecipes)
@@ -321,5 +319,5 @@ function recipesDataWithTags(recipes) {
 function sum(data){
     const recipesSum = document.querySelector('.filters_element_sum')
     recipesSum.innerHTML=`${data.length} recettes`
-    console.log("tableau test :", data)
+    // console.log("tableau test :", data)
 }

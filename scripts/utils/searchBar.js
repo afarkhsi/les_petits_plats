@@ -27,10 +27,10 @@ function searchData() {
                         cardIsVisible=true; 
                     }
                 });       
-                return cardIsVisible 
-            })
-        sum(newRecipes)
-        generateFiltersList(newRecipes)
+                return cardIsVisible; 
+            });
+        sum(newRecipes);
+        generateFiltersList(newRecipes);
         }
         
 
