@@ -14,7 +14,7 @@ ustensilsTagBlock.classList.add('tags_ustensils')
 
 // CREATION DES VARIABLES TABLEAUX
 const ingredientItems = document.getElementsByClassName('filters_ingredients_block_list_item')
-// console.log('items:',ingredientItems )
+console.log('items:',ingredientItems )
 
 
 const appliancesItems = document.getElementsByClassName('filters_appliances_block_list_item')
@@ -55,7 +55,7 @@ function createTagIngredients(){
                     searchData()
                     tagIngredientAdded = false
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     return false
                 })       
 
@@ -107,7 +107,7 @@ function createTagAppliances(){
                     searchData()
                     tagAppliancesAdded = false
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     return false
                 })       
 
@@ -160,7 +160,7 @@ function createTagUstensils(){
                     searchData()
                     tagUstensilsAdded = false
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     return false
                 })       
 

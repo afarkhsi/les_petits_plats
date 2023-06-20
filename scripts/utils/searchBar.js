@@ -1,60 +1,56 @@
+const searchBar = document.querySelector(".search_zone_input")
 function searchData() {
-    const searchBar = document.querySelector(".search_zone_input")
     const defaultMessage = document.querySelector(".message-no-match-result")
     const clearSearch = document.querySelector(".search_zone_clear")
 
     newRecipes = [];
     let tagIsVisible = false
 
-    /* ajout du listener de comparaison à la saisie dans l'input */
-    searchBar.addEventListener("keyup", (event)=>{
-        let searchedName = event.target.value;
-        // console.log('saisie clavier:', searchedName)
+    let searchedName;
 
+    if(searchBar.value.length > 2) {
+        searchedName = searchBar.value
         const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
-        // console.log('regex', regexInput)
-        if(searchBar.value.length > 2) {
-            newRecipes = recipes.filter((recipe) => {
-                let cardIsVisible = false;
-                if (regexInput.test(recipe.name.toLowerCase())){
-                    cardIsVisible=true;
-                } else if (regexInput.test(recipe.description.toLowerCase())) {
-                    cardIsVisible=true;
+        newRecipes = recipes.filter((recipe) => {
+            let cardIsVisible = false;
+            if (regexInput.test(recipe.name.toLowerCase())){
+                cardIsVisible=true;
+            } else if (regexInput.test(recipe.description.toLowerCase())) {
+                cardIsVisible=true;
+            }
+
+            recipe.ingredients.forEach((ingredient)=> {
+                if (regexInput.test(ingredient.ingredient.toLowerCase())) {
+                    cardIsVisible=true; 
                 }
+            });       
+            return cardIsVisible; 
+        });
+    generateFiltersList(newRecipes);
+    }
+    sum(newRecipes)
 
-                recipe.ingredients.forEach((ingredient)=> {
-                    if (regexInput.test(ingredient.ingredient.toLowerCase())) {
-                        cardIsVisible=true; 
-                    }
-                });       
-                return cardIsVisible; 
-            });
-        sum(newRecipes);
-        generateFiltersList(newRecipes);
-        }
-        
-
-        /** affichage du message par default lorsqu'aucune recette n'est trouvée */
-        if(newRecipes.length>0) {
-            defaultMessage.innerHTML=""
-        } else {
-            defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchBar.value}’ vous pouvez chercher «
-                tarte aux pommes », « poisson », etc. `
-        }
+    /** affichage du message par default lorsqu'aucune recette n'est trouvée */
+    if(newRecipes.length>0) {
+        defaultMessage.innerHTML=""
+    } else {
+        defaultMessage.innerHTML = `Aucune recette ne contient ‘${searchBar.value}’ vous pouvez chercher «
+            tarte aux pommes », « poisson », etc. `
+    }
 
 
-        /** nouveau display en fonction de la recherche */
-        if((searchBar.value.length > 2)){
-            recipesData(newRecipes)
-            // console.log("nouveau tableau:" , newRecipes)
-            clearSearch.style.display="block"   
-        } else {
-            defaultMessage.innerHTML=""
-            recipesData(recipes)
-            sum(recipes)
-            clearSearch.style.display="none"   
-        }
-    })
+    /** nouveau display en fonction de la recherche */
+    if((searchBar.value.length > 2)){
+        recipesData(newRecipes)
+        // console.log("nouveau tableau:" , newRecipes)
+        clearSearch.style.display="block"   
+    } else {
+        defaultMessage.innerHTML=""
+        recipesData(recipes)
+        sum(recipes)
+        generateFiltersList(recipes);
+        clearSearch.style.display="none"   
+    }
 
     /** si un tag est actif les tableaux de la fonction recipesDataWithTags sont utilisé pour actuliser la page*/
     const tagsIngredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
@@ -109,3 +105,7 @@ function searchData() {
     searchBtn.onmouseout = searchBtnOut
 }
 
+/* ajout du listener de comparaison à la saisie dans l'input */
+searchBar.addEventListener("keyup", ()=>{
+    searchData()
+})
