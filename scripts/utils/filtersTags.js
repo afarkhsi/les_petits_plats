@@ -14,7 +14,7 @@ ustensilsTagBlock.classList.add('tags_ustensils')
 
 // CREATION DES VARIABLES TABLEAUX
 const ingredientItems = document.getElementsByClassName('filters_ingredients_block_list_item')
-console.log('items:',ingredientItems )
+// console.log('items:',ingredientItems )
 
 
 const appliancesItems = document.getElementsByClassName('filters_appliances_block_list_item')
@@ -25,14 +25,8 @@ const ustensilsItems = document.getElementsByClassName('filters_ustensils_block_
 let tagIngredientAdded = false
 
 function createTagIngredients(){
-    // const ingredientsTags = document.querySelectorAll(".tags_ingredients_block_content")
-    // const ingredientsTagsArray = Array.from(ingredientsTags)
-    // console.log('tags array test doublon', ingredientsTagsArray)
-    
-    console.log('ajout tagingredientAdded test false', tagIngredientAdded)
     if(tagIngredientAdded === false){
         const newIngredientArray = Array.from(ingredientItems)
-        // console.log('test ingredients array',newIngredientArray)
         newIngredientArray.forEach((element) => {
             element.addEventListener("click", (event) => {
                 /* Reinitalise l'input de recherche au click */
@@ -53,8 +47,6 @@ function createTagIngredients(){
                 const tagIngredientClose = document.createElement('img')
                 tagIngredientClose.classList.add('tags_ingredients_block_img')
                 tagIngredientClose.src='../assets/icones/close_Tag.svg'
-                // document.createElement('i')
-                // tagIngredientClose.classList.add('fa-solid fa-user')
 
                 /* Ajout listener pour supprimer le tag */
                 tagIngredientClose.addEventListener('click',()=>{
@@ -62,10 +54,8 @@ function createTagIngredients(){
                     tagIngredientBlock.innerHTML=""
                     searchData()
                     tagIngredientAdded = false
-                    // console.log(tagAded)
                     element.style.backgroundColor = 'white'
-                    // recipesDataWithTags(recipes)
-                    // sum(recipes) 
+                    recipesDataWithTags(recipes)
                     return false
                 })       
 
@@ -74,27 +64,21 @@ function createTagIngredients(){
                 tagIngredientBlock.appendChild(tagIngredientContent)
                 tagIngredientBlock.appendChild(tagIngredientClose)
                 // element.style.backgroundColor = '#FFD15B'
-                searchData()
-                // recipesDataWithTags(recipes)
-                console.log('ajout tagingredientAdded test true', tagIngredientAdded)  
-                // sum(recipes) 
+                searchData() 
             })         
         })
         tagIngredientAdded=true
     } 
 }
 
+
 let tagAppliancesAdded = false
+
 function createTagAppliances(){
     let tagAppliancesAdded = false
-    // const ingredientsTags = document.querySelectorAll(".tags_ingredients_block_content")
-    // const ingredientsTagsArray = Array.from(ingredientsTags)
-    // console.log('tags array test doublon', ingredientsTagsArray)
-    
-    console.log('ajout tagingredientAdded test false', tagAppliancesAdded)
+    // console.log('ajout tagAppliances test false', tagAppliancesAdded)
     if(tagAppliancesAdded === false){
         const newAppliancesArray = Array.from(appliancesItems)
-        // console.log('test ingredients array',newIngredientArray)
         newAppliancesArray.forEach((element) => {
             element.addEventListener("click", (event) => {
                 /* Reinitalise l'input de recherche au click */
@@ -115,8 +99,6 @@ function createTagAppliances(){
                 const tagApplianceClose = document.createElement('img')
                 tagApplianceClose.classList.add('tags_appliances_block_img')
                 tagApplianceClose.src='../assets/icones/close_Tag.svg'
-                // document.createElement('i')
-                // tagIngredientClose.classList.add('fa-solid fa-user')
 
                 /* Ajout listener pour supprimer le tag */
                 tagApplianceClose.addEventListener('click',()=>{
@@ -124,10 +106,8 @@ function createTagAppliances(){
                     tagApplianceBlock.innerHTML=""
                     searchData()
                     tagAppliancesAdded = false
-                    // console.log(tagAded)
                     element.style.backgroundColor = 'white'
-                    // recipesDataWithTags(recipes)
-                    // sum(recipes) 
+                    recipesDataWithTags(recipes)
                     return false
                 })       
 
@@ -135,10 +115,9 @@ function createTagAppliances(){
                 appliancesTagBlock.appendChild(tagApplianceBlock)
                 tagApplianceBlock.appendChild(tagApplianceContent)
                 tagApplianceBlock.appendChild(tagApplianceClose)
-                // element.style.backgroundColor = '#FFD15B'
+                element.style.backgroundColor = '#FFD15B'
                 searchData()
-                console.log('ajout tagApplicancesAdded test true', tagAppliancesAdded)  
-                // sum(recipes) 
+                // console.log('ajout tagApplicancesAdded test true', tagAppliancesAdded)  
             })         
         })
     }
@@ -149,11 +128,7 @@ function createTagAppliances(){
 let tagUstensilsAdded = false
 
 function createTagUstensils(){
-    // const ingredientsTags = document.querySelectorAll(".tags_ingredients_block_content")
-    // const ingredientsTagsArray = Array.from(ingredientsTags)
-    // console.log('tags array test doublon', ingredientsTagsArray)
-    
-    console.log('ajout tagingredientAdded test false', tagUstensilsAdded)
+    // console.log('ajout tagingredientAdded test false', tagUstensilsAdded)
     if(tagUstensilsAdded === false){
         const newUstensilsArray = Array.from(ustensilsItems)
         // console.log('test ingredients array',newIngredientArray)
@@ -177,8 +152,6 @@ function createTagUstensils(){
                 const tagUstensilClose = document.createElement('img')
                 tagUstensilClose.classList.add('tags_ustensils_block_img')
                 tagUstensilClose.src='../assets/icones/close_Tag.svg'
-                // document.createElement('i')
-                // tagIngredientClose.classList.add('fa-solid fa-user')
 
                 /* Ajout listener pour supprimer le tag */
                 tagUstensilClose.addEventListener('click',()=>{
@@ -186,10 +159,8 @@ function createTagUstensils(){
                     tagUstensilBlock.innerHTML=""
                     searchData()
                     tagUstensilsAdded = false
-                    // console.log(tagAded)
                     element.style.backgroundColor = 'white'
-                    // recipesDataWithTags(recipes)
-                    // sum(recipes) 
+                    recipesDataWithTags(recipes)
                     return false
                 })       
 
@@ -199,8 +170,7 @@ function createTagUstensils(){
                 tagUstensilBlock.appendChild(tagUstensilClose)
                 // element.style.backgroundColor = '#FFD15B'
                 searchData()
-                // console.log('ajout tagustensilsAdded test true', tagUstensilsAdded)  
-                // sum(recipes) 
+                console.log('ajout tagustensilsAdded test true', tagUstensilsAdded)  
             })         
         })
     }
@@ -229,7 +199,7 @@ function recipesDataWithTags(recipes) {
     let appliancesElementsTagged = []
     let ustensilsElementsTagged = []
 
-    sum(newRecipes)
+    // sum(newRecipes)
       
     ingredientsElementsTagged = ingredientsElementsArray.map((element) => element.innerHTML)
     appliancesElementsTagged = appliancesElementsArray.map((element) => element.innerHTML)

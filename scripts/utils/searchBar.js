@@ -59,15 +59,15 @@ function searchData() {
     /** si un tag est actif les tableaux de la fonction recipesDataWithTags sont utilisé pour actuliser la page*/
     const tagsIngredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
     const tagsIngredientsElementsArray = Array.from(tagsIngredientsElements)
-    console.log("liste des tags ingredients actifs:", tagsIngredientsElementsArray)
+    // console.log("liste des tags ingredients actifs:", tagsIngredientsElementsArray)
 
     const tagsAppliancesElements = document.querySelectorAll(".tags_appliances_block_content")
     const tagsAppliancesElementsArray = Array.from(tagsAppliancesElements)
-    console.log("liste des tags appareils actifs:", tagsAppliancesElementsArray)
+    // console.log("liste des tags appareils actifs:", tagsAppliancesElementsArray)
 
     const tagsUstensilsElements = document.querySelectorAll(".tags_ustensils_block_content")
     const tagsUstensilsElementsArray = Array.from(tagsUstensilsElements)
-    console.log("liste des tags ustensils actifs:", tagsUstensilsElementsArray)
+    // console.log("liste des tags ustensils actifs:", tagsUstensilsElementsArray)
 
     if(tagsIngredientsElementsArray.length>0 ||
     tagsAppliancesElementsArray.length>0 ||
