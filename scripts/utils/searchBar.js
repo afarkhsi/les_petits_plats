@@ -12,25 +12,7 @@ function searchData() {
     if(searchBar.value.length > 2) {
         searchedName = searchBar.value
         const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
-        // let index = 0
-        // while(index < recipes.length) {
-        //     if(newRecipes.includes(recipes[index])===false) {
-        //         let cardIsVisible = false;
-        //         if (regexInput.test(recipes[index].name.toLowerCase())){
-        //             cardIsVisible=true;
-        //         } else if (regexInput.test(recipes[index].description.toLowerCase())) {
-        //             cardIsVisible=true;
-        //         }
-        //         for (let i = 0; i < recipes[index].ingredients.length; i++) {
-        //             if (regexInput.test(recipes[index].ingredients[i].ingredient.toLowerCase())) {
-        //                 cardIsVisible=true; 
-        //             }
-        //         }
-        //         if(cardIsVisible===true) {
-        //             newRecipes.push(recipes[index])
-        //         }                    
-        //     }
-
+  
         for(let recipe of recipes) {
             let cardIsVisible = false;
             if (regexInput.test(recipe.name.toLowerCase())){
@@ -50,10 +32,8 @@ function searchData() {
         // index++
         sum(newRecipes) 
         generateFiltersList(newRecipes)
-        }
+    }
         
-
-
 
     /** affichage du message par default lorsqu'aucune recette n'est trouvée */
     if(newRecipes.length>0) {
@@ -69,7 +49,7 @@ function searchData() {
         recipesData(newRecipes)
         clearSearch.style.display="block"   
     } else {
-        defaultMessage.innerHTML=""        
+        defaultMessage.innerHTML=""      
         recipesData(recipes)
         sum(recipes)
         clearSearch.style.display="none"             
@@ -78,15 +58,15 @@ function searchData() {
     /** si un tag est actif les tableaux de la fonction recipesDataWithTags sont utilisé pour actuliser la page*/
     const tagsIngredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
     const tagsIngredientsElementsArray = Array.from(tagsIngredientsElements)
-    console.log("liste des tags ingredients actifs:", tagsIngredientsElementsArray)
+    // console.log("liste des tags ingredients actifs:", tagsIngredientsElementsArray)
 
     const tagsAppliancesElements = document.querySelectorAll(".tags_appliances_block_content")
     const tagsAppliancesElementsArray = Array.from(tagsAppliancesElements)
-    console.log("liste des tags appareils actifs:", tagsAppliancesElementsArray)
+    // console.log("liste des tags appareils actifs:", tagsAppliancesElementsArray)
 
     const tagsUstensilsElements = document.querySelectorAll(".tags_ustensils_block_content")
     const tagsUstensilsElementsArray = Array.from(tagsUstensilsElements)
-    console.log("liste des tags ustensils actifs:", tagsUstensilsElementsArray)
+    // console.log("liste des tags ustensils actifs:", tagsUstensilsElementsArray)
 
     if(tagsIngredientsElementsArray.length>0 ||
         tagsAppliancesElementsArray.length>0 ||
