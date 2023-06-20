@@ -30,9 +30,10 @@ function searchData() {
             }               
         }
         // index++
-        sum(newRecipes) 
         generateFiltersList(newRecipes)
     }
+
+    sum(newRecipes) 
         
 
     /** affichage du message par default lorsqu'aucune recette n'est trouvée */
