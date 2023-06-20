@@ -51,6 +51,7 @@ function searchData() {
     } else {
         defaultMessage.innerHTML=""      
         recipesData(recipes)
+        generateFiltersList(recipes)
         sum(recipes)
         clearSearch.style.display="none"             
     }

@@ -55,7 +55,7 @@ function createTagIngredients(){
                     searchData()
                     tagIngredientAdded = false
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     return false
                 })       
 
@@ -107,7 +107,7 @@ function createTagAppliances(){
                     searchData()
                     tagAppliancesAdded = false
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     return false
                 })       
 
@@ -160,7 +160,7 @@ function createTagUstensils(){
                     searchData()
                     tagUstensilsAdded = false
                     element.style.backgroundColor = 'white'
-                    recipesDataWithTags(recipes)
+                    // recipesDataWithTags(recipes)
                     return false
                 })       
 
