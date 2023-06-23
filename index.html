@@ -42,14 +42,25 @@
 
         <section class="filters px-5 m-0">
 
-            <div class="filters_element filter_ingredients">
-                <button class="filters_ingredients_btn btn-ingredients" aria-expanded="false">Ingrédients</button>
+            <div class="filters_element filter_ingredients ">
+                <div class="filters_element_btn filters_ingredients_btn btn-ingredients" aria-expanded="false">
+                    <h3 class="filters_element_btn_title">Ingrédients</h3>
+                    <i class='fa fa-angle-down filters_ingredients_btn_arrow'></i>
+                </div>
             </div>
+
             <div class="filters_element filter_appliances" >
-                <button class="filters_appliances_btn btn-appliances"aria-expanded="false">Appareils</button>
+                <div class="filters_element_btn filters_appliances_btn btn-appliances"aria-expanded="false">
+                    <h3 class="filters_element_btn_title">Appareils</h3>
+                    <i class='fa fa-angle-down filters_appliances_btn_arrow'></i>
+                </div>
             </div>
+
             <div class="filters_element filter_ustensils" >
-                <button class="filters_ustensils_btn btn-ustensils"aria-expanded="false">Ustensiles</button>
+                <div class="filters_element_btn filters_ustensils_btn btn-ustensils"aria-expanded="false">
+                    <h3 class="filters_element_btn_title">Ustensiles</h3>
+                    <i class='fa fa-angle-down filters_ustensils_btn_arrow'></i>
+                </div>
             </div>
 
             <span class="filters_element_sum">1500 recettes</span>
@@ -57,23 +68,19 @@
         </section>
 
         <section class="tags px-5 my-2">
-            <!-- <DIV id="test">
-                <button>blabalabalablaaaa</button>
-            </DIV>
-            <DIV id="test2" aria-expanded="false">
-
-            </DIV> -->
         </section>
 
-        <section class="recipes_cards row mx-5 my-5 justify-content-between gy-5">
+        <section class="recipes_cards row mx-5 my-5 justify-content-around gy-5">
 
         </section>
 
         <span class="message-no-match-result"></span>
 
     </main>
+    <script src="https://kit.fontawesome.com/5f2e0ae9aa.js" crossorigin="anonymous"></script>
 <!-- Bootstrap JS bundle → -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Liens vers les fichiers JS -->   
     <script src="scripts/utils/filtersTags.js"></script>
     <script src="scripts/utils/filters.js"></script>
     <script src="scripts/utils/searchBar.js"></script>

@@ -29,35 +29,7 @@ function createIngredients(ingredients) {
 
 function createRecipeCard(data) {
 
-    const { id, image, name, servings, ingredients, time, description, appliance, ustensils } = data;
-    
-    // function createIngredients(ingredients) {
-
-    //     const ingredientsWrapper = document.createElement('div')
-    //     ingredientsWrapper.classList.add('card_body_ingredients-detail')
-    
-    //     let ingredientsDOM;
-    
-    //     ingredients.forEach((ingredient) => {
-    //         ingredientsDOM = document.createElement('p')
-    //         ingredientsDOM.classList.add('card_body_ingredients-detail_block')
-    //         ingredientsDOM.setAttribute('data-ingredient', ingredient.ingredient);
-    //         if (ingredient.unit === '' || ingredient.unit== null) {
-    //             if (ingredient.quantity) {
-    //                 ingredientsDOM.innerHTML = `<p class="card_body_ingredients-detail_block_name">${ingredient.ingredient}</p> 
-    //                                             <p class="card_body_ingredients-detail_block_quantity">${ingredient.quantity}</p>`;
-    //             } else {
-    //                 ingredientsDOM.innerHTML = `<p class="card_body_ingredients-detail_block_name">${ingredient.ingredient}</p> `;
-    //             } 
-    //         } else {
-    //             ingredientsDOM.innerHTML = `<p class="card_body_ingredients-detail_block_name">${ingredient.ingredient}</p> 
-    //                                         <p class="card_body_ingredients-detail_block_quantity">${ingredient.quantity} ${ingredient.unit}</p>
-    //                                         `;
-    //         }
-    //         ingredientsWrapper.appendChild(ingredientsDOM);
-    //         })
-    //     return ingredientsWrapper
-    // }
+    const { id, image, name, servings, ingredients, time, description } = data;
 
     const wrapper = document.createElement('article');
     wrapper.classList.add("cards")
@@ -126,42 +98,4 @@ function createRecipeCard(data) {
     wrapper.appendChild(cardHidden)
 
     return (wrapper);
-    // const ingredientTest = getIngredients(ingredients)
-    // console.log(ingredientTest)
-
-
-
-
-
-    // function getCardDOM() {
-        
-    //     let cardDOM = `
-    //     <div class="card" style="width: 18rem;">
-    //         <img src="..." class="card-img-top" alt="...">
-    //         <span class="bg-warning">${time} min</span>
-    //         <h3 class="card-title">${name}</h3>
-    //         <div class="card-body">
-    //             <h4 class="card-h4 fw-light">Recette</h4>
-    //             <p class="card-text">${description}</p>
-    //         </div>
-    //     </div>
-    //     `
-    //     ;
-    //     // getIngredients(ingredients)
-    //     wrapper.innerHTML=cardDOM;
-
-    //     return wrapper;
-    // }
-
-    // return {
-    //     id, 
-    //     name,
-    //     servings,
-    //     ingredients,
-    //     time,
-    //     description,
-    //     appliance,
-    //     ustensils,
-    //     getCardDOM
-    // }
 }
