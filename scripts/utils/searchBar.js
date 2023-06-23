@@ -1,6 +1,6 @@
 const searchBar = document.querySelector(".search_zone_input")
 
-//V2 FONCTIONNELLE
+//Fonction de recherche sur l'input principal
 function searchData() {
     const defaultMessage = document.querySelector(".message-no-match-result")
     const clearSearch = document.querySelector(".search_zone_clear")
@@ -60,15 +60,12 @@ function searchData() {
     /** si un tag est actif les tableaux de la fonction recipesDataWithTags sont utilisé pour actuliser la page*/
     const tagsIngredientsElements = document.querySelectorAll(".tags_ingredients_block_content")
     const tagsIngredientsElementsArray = Array.from(tagsIngredientsElements)
-    // console.log("liste des tags ingredients actifs:", tagsIngredientsElementsArray)
 
     const tagsAppliancesElements = document.querySelectorAll(".tags_appliances_block_content")
     const tagsAppliancesElementsArray = Array.from(tagsAppliancesElements)
-    // console.log("liste des tags appareils actifs:", tagsAppliancesElementsArray)
 
     const tagsUstensilsElements = document.querySelectorAll(".tags_ustensils_block_content")
     const tagsUstensilsElementsArray = Array.from(tagsUstensilsElements)
-    // console.log("liste des tags ustensils actifs:", tagsUstensilsElementsArray)
 
     if(tagsIngredientsElementsArray.length>0 ||
         tagsAppliancesElementsArray.length>0 ||
@@ -92,25 +89,23 @@ function searchData() {
         }
     }
     clearSearch.onclick = clearSearchBar
-
-    /** Listener changement affichage bouton search */
-    const searchBtn = document.querySelector(".search_zone_button")
-    const searchBtnImg = document.querySelector(".search_zone_button img")
-
-    function searchBtnHover(){
-        searchBtnImg.src="assets/icones/search_yellow.svg"
-   
-    }
-
-    function searchBtnOut() {
-        searchBtnImg.src="assets/icones/search.svg"    
-    }
-
-    searchBtn.onmouseover = searchBtnHover;
-    searchBtn.onmouseout = searchBtnOut
 }
 
-
+/** Listener input search saisie au clavier */
 searchBar.addEventListener("keyup", ()=>{
     searchData()
 })
+
+/** Listener changement affichage bouton search */
+const searchBtn = document.querySelector(".search_zone_button")
+const searchBtnImg = document.querySelector(".search_zone_button img")
+
+function searchBtnHover(){
+    searchBtnImg.src="assets/icones/search_yellow.svg"  
+}
+
+function searchBtnOut() {
+    searchBtnImg.src="assets/icones/search.svg"    
+}
+searchBtn.onmouseover = searchBtnHover;
+searchBtn.onmouseout = searchBtnOut;

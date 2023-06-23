@@ -155,36 +155,48 @@ header img {
   width: 195px;
   background-color: none;
 }
-.filters_element button {
+.filters_element_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
   max-width: 195px;
   width: 100%;
   height: 56px;
   background-color: white;
   border: none;
   border-radius: 11px;
-  font-family: "Manrope", sans-serif;
 }
-.filters_element div {
+.filters_element_btn_title {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+}
+.filters_element_btn i {
+  transition: transform 300ms;
+}
+.filters_element_block {
   max-width: 195px;
   max-height: 315px;
-  display: none;
   position: relative;
   z-index: 1;
   background-color: rgb(255, 255, 255);
   flex-direction: column;
   border-radius: 0px 0px 11px 11px;
 }
-.filters_element div input {
+.filters_element_block_input {
   width: 84%;
   height: 36px;
   margin: 0px 8%;
   border: 1px solid #C6C6C6;
   border-radius: 2px;
 }
-.filters_element div input:focus-visible {
+.filters_element_block_input:focus-visible {
   border-color: #FFD15B !important;
 }
-.filters_element div ul {
+.filters_element_block_list {
   text-decoration: none;
   position: relative;
   margin-top: 10px;
@@ -194,7 +206,7 @@ header img {
   padding: 0;
   border-radius: 0px 0px 11px 11px;
 }
-.filters_element div ul li {
+.filters_element_block_list_item {
   width: 100%;
   padding-left: 1rem;
   padding-bottom: 0.5rem;
@@ -202,10 +214,10 @@ header img {
   overflow: hidden;
   cursor: pointer;
 }
-.filters_element div ul li:hover {
+.filters_element_block_list_item:hover {
   background-color: #FFD15B;
 }
-.filters_element div ul::-webkit-scrollbar {
+.filters_element_block_list::-webkit-scrollbar {
   display: none; /* Optional: just make scrollbar invisible */
   width: 5px;
 }

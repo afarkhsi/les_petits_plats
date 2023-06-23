@@ -9,26 +9,37 @@
     &_element {
         width: 195px;
         background-color: none;
-
-        & button {
+        &_btn {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
             max-width: 195px;
             width: 100%;
             height: 56px;
             background-color: white;
             border: none;
             border-radius: 11px;
-            font-family: 'Manrope', sans-serif;
+            &_title {
+                font-family: 'Manrope', sans-serif;
+                font-size: 16px;
+                text-align: center;
+                margin: 0;
+            }
+            & i {
+                transition: transform 300ms;
+            }
         }
-        & div {
+        &_block {
             max-width: 195px;
             max-height: 315px;
-            display: none;
             position: relative;
             z-index: 1;
             background-color: rgb(255, 255, 255);
             flex-direction: column;
             border-radius:0px 0px 11px 11px;
-            & input {
+            &_input {
                 width: 84%;
                 height: 36px;
                 margin: 0px 8%;
@@ -38,7 +49,7 @@
                     border-color: #FFD15B!important;
                 }
             }
-            & ul {
+            &_list {
                 text-decoration: none;
                 position: relative;
                 margin-top: 10px;
@@ -47,7 +58,7 @@
                 overflow: scroll;
                 padding: 0;
                 border-radius:0px 0px 11px 11px;
-                & li {
+                &_item {
                     width: 100%;
                     padding-left: 1rem;
                     padding-bottom: 0.5rem;
@@ -71,8 +82,65 @@
             right: 60px;
             top: 15px;
         }
-    }       
-}
+    }
+}     
+
+        // & button {
+        //     max-width: 195px;
+        //     width: 100%;
+        //     height: 56px;
+        //     background-color: white;
+        //     border: none;
+        //     border-radius: 11px;
+        //     font-family: 'Manrope', sans-serif;
+        // }
+        // & div {
+        //     max-width: 195px;
+        //     max-height: 315px;
+        //     display: none;
+        //     position: relative;
+        //     z-index: 1;
+        //     background-color: rgb(255, 255, 255);
+        //     flex-direction: column;
+        //     border-radius:0px 0px 11px 11px;
+        //     & input {
+        //         width: 84%;
+        //         height: 36px;
+        //         margin: 0px 8%;
+        //         border: 1px solid #C6C6C6;
+        //         border-radius: 2px;
+        //         &:focus-visible {
+        //             border-color: #FFD15B!important;
+        //         }
+        //     }
+        //     & ul {
+        //         text-decoration: none;
+        //         position: relative;
+        //         margin-top: 10px;
+        //         max-height: 250px;
+        //         list-style: none;
+        //         overflow: scroll;
+        //         padding: 0;
+        //         border-radius:0px 0px 11px 11px;
+        //         & li {
+        //             width: 100%;
+        //             padding-left: 1rem;
+        //             padding-bottom: 0.5rem;
+        //             padding-top:0.5rem;
+        //             overflow: hidden;
+        //             cursor: pointer;
+        //             &:hover{
+        //                 background-color: #FFD15B;
+        //             }
+        //         }
+        //         &::-webkit-scrollbar {
+        //             display: none;  /* Optional: just make scrollbar invisible */
+        //             width: 5px;
+        //         }
+        //     }
+        // }
+     
+
 
 // .filters_element_block_list_close {
 
