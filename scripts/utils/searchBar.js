@@ -10,7 +10,7 @@ function searchData() {
     newRecipes = []
     let searchedName ;
     if(searchBar.value.length > 2) {
-        searchedName = searchBar.value
+        searchedName = searchBar.value;
         const regexInput = new RegExp (`${searchedName.trim().toLowerCase()}`);
   
         for(let recipe of recipes) {
@@ -29,8 +29,7 @@ function searchData() {
                 newRecipes.push(recipe)
             }               
         }
-        // index++
-        generateFiltersList(newRecipes)
+        generateFiltersList(newRecipes);
     }
 
     sum(newRecipes) 
