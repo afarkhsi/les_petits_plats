@@ -76,12 +76,15 @@ function searchData() {
         } else {
             newRecipes=recipesDataWithTags(recipes)
         }
+    } else {
+        tagIsVisible=false
     }
    
     /** Fonction reinitialisation input et affichage */
     function clearSearchBar() {
         if(searchBar.value !=""){
             searchBar.value = "";
+            console.log(tagIsVisible)
             clearSearch.style.display="none"
             recipesData(recipes)
             generateFiltersList(recipes)
