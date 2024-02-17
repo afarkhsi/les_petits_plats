@@ -4,7 +4,7 @@
 ![sass][sass-badge]
 ![javascript][javascript-badge]
 
-![banner readme](./src/assets/site.png)
+![banner readme](src/assets/banniere/site.png)
 
 ### Description:
 
