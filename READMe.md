@@ -1,7 +1,7 @@
 # LES PETITS PLATS
 
 ![html][html5-badge]
-![scss][scss-badge]
+![sass][sass-badge]
 ![javascript][javascript-badge]
 
 ![banner readme](./src/assets/site.png)
@@ -25,5 +25,5 @@ Après avoir édité des livres de cuisine pendant plusieurs années, l’entrep
 <!-- BADGE LINKS -->
 
 [html5-badge]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
-[scss-badge]: https://img.shields.io/badge/SCSS-E22FE5?style=for-the-badge&logo=css3&logoColor=white
+[scss-badge]: https://img.shields.io/badge/SASS-E22FE5?style=for-the-badge&logo=sass&logoColor=white
 [javascript-badge]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
